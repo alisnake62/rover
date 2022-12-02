@@ -4,27 +4,16 @@ from rover import Rover, Orientation
 
 class TestRover(unittest.TestCase):
 
-    def test_easy(self):
+    def test_tourne_droite_1(self):
         # Arrange
-        rover = Rover()
+        rover = Rover(orientation=Orientation(cardinal="Sud"))
 
         # Action
-        testEasy = rover.easy()
+        rover.tournedroite()
 
         # Assert
-        self.assertEqual(testEasy, 1)
-
-
-    # def test_tourne_droite_1(self):
-    #     # Arrange
-    #     rover = Rover(orientation=Orientation(cardinal="Sud"))
-
-    #     # Action
-    #     # rover.tournedroite()
-
-    #     # Assert
-    #     currentOrientation = rover.getOrientation
-    #     self.assertEqual(currentOrientation, Orientation("Sud"))
+        currentOrientation = rover.getOrientation()
+        self.assertEqual(currentOrientation, Orientation("Ouest"))
         
 
 if __name__ == '__main__':

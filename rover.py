@@ -1,19 +1,32 @@
-class Rover:
+class Cardinal():
 
-    def easy(self):
-        return 1
+    Sud = "Sud"
+    Ouest = "Ouest"
+
+    def __init__(self, value):
+        self._value = value
+
+    def __eq__(self, otherCardinal):
+        return self._value == otherCardinal._value
 
 class Orientation:
 
-    def __init__(self, cardinal):
-        self.cardinal = cardinal
+    def __init__(self, cardinal:Cardinal):
+        self._cardinal = cardinal
 
     def __eq__(self, otherOrientation):
-        return self.cardinal == otherOrientation.cardinal
+        return self._cardinal == otherOrientation._cardinal
 
-def main():
-    rover = Rover()
-    rover.easy()
+    def tournedroite(self):
+        if self._cardinal == Cardinal("Sud"): return Cardinal("Ouest")
 
-if __name__ == '__main__':
-    main()
+class Rover:
+
+    def __init__(self, orientation: Orientation):
+        self._orientation = orientation
+
+    def getOrientation(self):
+        return self._orientation
+
+    def tournedroite(self):
+        self._orientation.tournedroite()
