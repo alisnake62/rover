@@ -29,13 +29,14 @@ class Position:
     def __init__(self, y=0, x=0):
         self._y = y
         self._x = x
+        self._position = x, y
         
     def __eq__(self, otherPosition):
-        return self._cordonner == otherPosition._cordonner
+        return self._position == otherPosition._position
     
     def avance(self):
         if self._cardinal == Cardinal("Sud"): return self.y == self.y - 1
-        if self._cardinal == Cardinal("Nord"): return self.y == self.y + 1 
+        if self._cardinal == Cardinal("Nord"): return self.y == self.y + 1
         if self._cardinal == Cardinal("Est"): return self.x == self.x + 1
         if self._cardinal == Cardinal("Ouest"): return self.x == self.x - 1
         if self.x > 10: return self.x == 10
@@ -43,8 +44,11 @@ class Position:
         if self.y > 10: return self.y == 0
         if self.y < 0: return self.y == 10
 
+        #je suis pas sure du return ._. mais il faut récuperer position
+        return self._position == self.x, self.y
+
     def recule(self):
-        if self._cardinal == Cardinal("Sud"): return self.y == self.y + 1 
+        if self._cardinal == Cardinal("Sud"): return self.y == self.y + 1
         if self._cardinal == Cardinal("Nord"): return self.y == self.y - 1
         if self._cardinal == Cardinal("Est"): return self.x == self.x - 1
         if self._cardinal == Cardinal("Ouest"): return self.x == self.x + 1
@@ -53,8 +57,8 @@ class Position:
         if self.y > 10: return self.y == 0
         if self.y < 0: return self.y == 10
 
-
-
+        #je suis pas sure du return ._. mais il faut récuperer position
+        return self._position == self.x, self.y
 
 
 class Rover:
