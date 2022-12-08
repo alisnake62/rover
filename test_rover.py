@@ -7,7 +7,7 @@ class TestRover(unittest.TestCase):
 
     # def test_tourne_droite_1(self):
     #     # Arrange
-    #     rover = Rover(orientation=Orientation(cardinal="Sud"), position=Position(0,0))
+    #     rover = Rover(orientation=Orientation(cardinal="Sud))
 
     #     # Action
     #     rover.tournedroite()
@@ -18,7 +18,7 @@ class TestRover(unittest.TestCase):
 
     def test_avance(self):
         # Arrange
-        rover = Rover(orientation=Orientation(cardinal="Sud"), position=Position(0,0))
+        rover = Rover(orientation=Position())
 
         # Action
         rover.avance()
