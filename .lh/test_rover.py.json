@@ -1,0 +1,198 @@
+{
+    "sourceFile": "test_rover.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 45,
+            "patches": [
+                {
+                    "date": 1670840082815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670840095407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #     self.assertEqual(currentOrientation, Orientation(\"Ouest\"))\r\n \r\n     def test_avance(self):\r\n         # Arrange\r\n-        rover = Rover()\r\n+        rover = Rover(rover.)\r\n \r\n         # Action\r\n         rover.avance()\r\n         \r\n"
+                },
+                {
+                    "date": 1670840104048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n     #     self.assertEqual(currentOrientation, Orientation(\"Ouest\"))\r\n \r\n     def test_avance(self):\r\n         # Arrange\r\n-        rover = Rover(rover.)\r\n+        rover = Rover()\r\n+        rover.\r\n \r\n         # Action\r\n         rover.avance()\r\n         \r\n"
+                },
+                {
+                    "date": 1670840109850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \r\n     def test_avance(self):\r\n         # Arrange\r\n         rover = Rover()\r\n-        rover.\r\n+        rover.axe_x\r\n \r\n         # Action\r\n         rover.avance()\r\n         \r\n"
+                },
+                {
+                    "date": 1670840115531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n     def test_avance(self):\r\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x\r\n+        rover.axe_y\r\n \r\n         # Action\r\n         rover.avance()\r\n         \r\n"
+                },
+                {
+                    "date": 1670840126160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x\r\n         rover.axe_y\r\n+        self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n         rover.avance()\r\n         \r\n"
+                },
+                {
+                    "date": 1670840133357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n \r\n     def test_avance(self):\r\n         # Arrange\r\n         rover = Rover()\r\n-        rover.axe_x\r\n-        rover.axe_y\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n         rover.avance()\r\n"
+                },
+                {
+                    "date": 1670840176272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         position_actuel = rover.getPosition()\r\n-        self.assertEqual(position_actuel, Position(10,0))\r\n+        self.assertEqual()\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840187954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        position_actuel = rover.getPosition()\r\n+        rover.position\r\n         self.assertEqual()\r\n         \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670840357122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        rover.position\r\n-        self.assertEqual()\r\n+        rover.position()\r\n+        .assertEqual()\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840393656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        .assertEqual()\r\n+        rover.assertEqual()\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840400737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        rover.assertEqual()\r\n+        rover.assertEqual(\"\")\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840407186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        rover.assertEqual(\"\")\r\n+        rover.assertEqual(\"\",rover)\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840412696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        rover.assertEqual(\"\",rover)\r\n+        rover.assertEqual(\"\",rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840423629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        rover.assertEqual(\"\",rover.position())\r\n+        rover.assertEqual(\"6\",rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840429545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         rover.position()\r\n-        rover.assertEqual(\"6\",rover.position())\r\n+        rover.assertEqual(\"6 5 Nord\",rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840437907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,8 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        rover.position()\r\n         rover.assertEqual(\"6 5 Nord\",rover.position())\r\n         \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670840458653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import unittest\r\n \r\n-from rover import Rover, Orientation, Position\r\n+from rover import Rover\r\n \r\n class TestRover(unittest.TestCase):\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670840538431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        rover.assertEqual(\"6 5 Nord\",rover.position())\r\n+        rover.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840547838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        rover.assertEqual(\"6 5 Nord\", rover.position())\r\n+        self.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840565333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n         rover.avance()\r\n+        rover.position\r\n         \r\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n"
+                },
+                {
+                    "date": 1670840585552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,8 @@\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n         rover.avance()\r\n-        rover.position\r\n         \r\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n"
+                },
+                {
+                    "date": 1670840617093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"6 5 Nord\", rover.position())\r\n+        self.asserNottEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840623145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.asserNottEqual(\"6 5 Nord\", rover.position())\r\n+        self.asserNotEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840628614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.asserNotEqual(\"6 5 Nord\", rover.position())\r\n+        self.assertNotEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840641051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.assertNotEqual(\"6 5 Nord\", rover.position())\r\n+        self.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840659190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,10 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n+\r\n+    def \r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840664742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n \r\n-    def \r\n+    def test_recule\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840670463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,11 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n \r\n-    def test_recule\r\n+    def test_recule(self):\r\n         \r\n+        \r\n \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670840676061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,19 @@\n         # Assert\r\n         self.assertEqual(\"6 5 Nord\", rover.position())\r\n \r\n     def test_recule(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n+\r\n+        # Action\r\n+        rover.avance()\r\n         \r\n+        # Assert\r\n+        self.assertEqual(\"6 5 Nord\", rover.position())\r\n         \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840695071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,11 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"6 5 Nord\", rover.position())\r\n+        self.assertEqual(\"4 5 Nord\", rover.position())\r\n         \r\n+    \r\n \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670840703481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,22 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n+\r\n+    def test_recule(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n+\r\n+        # Action\r\n+        rover.avance()\r\n         \r\n+        # Assert\r\n+        self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        \r\n     \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840714177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n \r\n-    def test_recule(self):\r\n+    def test(self):\r\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x = 5\r\n         rover.axe_y = 5\r\n"
+                },
+                {
+                    "date": 1670840719355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n \r\n-    def test(self):\r\n+    def test_limite (self):\r\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x = 5\r\n         rover.axe_y = 5\r\n"
+                },
+                {
+                    "date": 1670840728023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,12 +41,12 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n \r\n-    def test_limite (self):\r\n+    def test_limite_map(self):\r\n         # Arrange\r\n         rover = Rover()\r\n-        rover.axe_x = 5\r\n+        rover.axe_x = 10\r\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n"
+                },
+                {
+                    "date": 1670840780466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,10 +52,12 @@\n         # Action\r\n         rover.avance()\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        self.assertEqual(\"0 5 Nord\", rover.position())\r\n+\r\n         \r\n+        \r\n     \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840786681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,20 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"0 5 Nord\", rover.position())\r\n \r\n+    def test_(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n+\r\n+        # Action\r\n+        rover.avance()\r\n         \r\n+        # Assert\r\n+        self.assertEqual(\"4 5 Nord\", rover.position())\r\n         \r\n     \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670840793844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"0 5 Nord\", rover.position())\r\n \r\n-    def test_(self):\r\n+    def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x = 5\r\n         rover.axe_y = 5\r\n"
+                },
+                {
+                    "date": 1670840799205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,22 @@\n         rover.avance()\r\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n+\r\n+    def test_recule(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n+\r\n+        # Action\r\n+        rover.avance()\r\n         \r\n+        # Assert\r\n+        self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        \r\n     \r\n \r\n \r\n if __name__ == '__main__':\r\n"
+                },
+                {
+                    "date": 1670840806796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n \r\n-    def test_recule(self):\r\n+    def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n         rover.axe_x = 5\r\n         rover.axe_y = 5\r\n"
+                },
+                {
+                    "date": 1670840818145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.avance()\r\n+        rover.to\r\n         \r\n         # Assert\r\n         self.assertEqual(\"4 5 Nord\", rover.position())\r\n \r\n"
+                },
+                {
+                    "date": 1670840826042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,12 +62,12 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.to\r\n+        rover.tourne_gauche\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        self.assertEqual(\"5 5 Nord\", rover.position())\r\n \r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670840831147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n         # Action\r\n         rover.tourne_gauche\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"5 5 Nord\", rover.position())\r\n+        self.assertEqual(\"5 5 Ou\", rover.position())\r\n \r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670840846123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n         # Action\r\n         rover.tourne_gauche\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"5 5 Ou\", rover.position())\r\n+        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n \r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n@@ -75,12 +75,12 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.avance()\r\n+        rover.tourne_gauche\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n         \r\n     \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670840853988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.tourne_gauche\r\n+        rover.tourne_gauche()\r\n         \r\n         # Assert\r\n         self.assertEqual(\"5 5 Ouest\", rover.position())\r\n \r\n@@ -75,9 +75,9 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.tourne_gauche\r\n+        rover.\r\n         \r\n         # Assert\r\n         self.assertEqual(\"5 5 Ouest\", rover.position())\r\n         \r\n"
+                },
+                {
+                    "date": 1670840859402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,12 +75,12 @@\n         rover.axe_y = 5\r\n         self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n-        rover.\r\n+        rover.tourne_droite()\r\n         \r\n         # Assert\r\n-        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n+        self.assertEqual(\"5 5 Est\", rover.position())\r\n         \r\n     \r\n \r\n \r\n"
+                }
+            ],
+            "date": 1670840082815,
+            "name": "Commit-0",
+            "content": "import unittest\r\n\r\nfrom rover import Rover, Orientation, Position\r\n\r\nclass TestRover(unittest.TestCase):\r\n\r\n\r\n    # def test_tourne_droite_1(self):\r\n    #     # Arrange\r\n    #     rover = Rover(orientation=Orientation(cardinal=\"Sud))\r\n\r\n    #     # Action\r\n    #     rover.tournedroite()\r\n\r\n    #     # Assert\r\n    #     currentOrientation = rover.getOrientation()\r\n    #     self.assertEqual(currentOrientation, Orientation(\"Ouest\"))\r\n\r\n    def test_avance(self):\r\n        # Arrange\r\n        rover = Rover()\r\n\r\n        # Action\r\n        rover.avance()\r\n        \r\n        # Assert\r\n        position_actuel = rover.getPosition()\r\n        self.assertEqual(position_actuel, Position(10,0))\r\n        \r\n\r\n\r\nif __name__ == '__main__':\r\n    unittest.main()"
+        }
+    ]
+}
