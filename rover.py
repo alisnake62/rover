@@ -47,6 +47,7 @@ class Position():
 
 class Deplacement(Position):
 
+    # ces deux methodes sont des methodes pour les tests il faut trouver ou les mettre
     def traitement_depassement_limite_teste_avance(position_avant_avance):
         if position_avant_avance > 10: position_avant_avance = 0
         if position_avant_avance < 0:  position_avant_avance = 10
@@ -113,7 +114,7 @@ class Deplacement(Position):
 
 class Rover(Deplacement):
 
-    # definie une position et une orientation "random" au Rover
+    # definie une position et une orientation "random" au Rover 
     def __init__(self):
         self.cardinal = random.choice(["Nord", "Sud", "Est", "Ouest"])
 

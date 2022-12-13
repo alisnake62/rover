@@ -138,8 +138,7 @@ class TestRover(unittest.TestCase):
             apres_tourne = rover.cardinal
             # Assert
             self.assertEqual(avant_tourne, apres_tourne)
-
-        
+     
     def test_tourne_droite(self):
         # Arrange
         rover = Rover()

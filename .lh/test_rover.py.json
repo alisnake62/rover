@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 335,
+            "activePatchIndex": 336,
             "patches": [
                 {
                     "date": 1670840082815,
@@ -1348,6 +1348,10 @@
                 {
                     "date": 1670923892616,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,10 +106,8 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n-\r\n-\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
+                },
+                {
+                    "date": 1670925695533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -137,10 +137,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n-\r\n-        \r\n+     \r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
                 }
             ],
             "date": 1670840082815,
