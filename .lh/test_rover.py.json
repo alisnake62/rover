@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 194,
+            "activePatchIndex": 335,
             "patches": [
                 {
                     "date": 1670840082815,
@@ -784,6 +784,570 @@
                 {
                     "date": 1670861038863,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,8 @@\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n-\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670918425585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-\r\n+            \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670918441623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            \r\n+            #on teste si le rover à bien avancé\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670918459633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,13 +26,15 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            #on teste si le rover à bien avancé\r\n+            #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n+            position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             position_avant_avance = rover.valeur_Y\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n"
+                },
+                {
+                    "date": 1670918467137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,9 @@\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n-            position_avant_avance = position_avant_avance + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            \r\n             position_avant_avance = rover.valeur_Y\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n"
+                },
+                {
+                    "date": 1670918474414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,10 @@\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_avance = rover.valeur_Y\r\n+            position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n \r\n"
+                },
+                {
+                    "date": 1670918494177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,10 @@\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n+            #on teste si le rover à bien avancé.\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n"
+                },
+                {
+                    "date": 1670918507605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_avance = rover.valeur_Y\r\n-            position_avant_avance = position_avant_avance + 1\r\n+            position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n"
+                },
+                {
+                    "date": 1670918530003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,17 +36,18 @@\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n-            position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n+            position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n \r\n"
+                },
+                {
+                    "date": 1670919194275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919207326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,8 @@\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n-            position_avant_avance = position_avant_avance - 1\r\n             position_apres_avance = rover.valeur_Y\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n"
+                },
+                {
+                    "date": 1670919215520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_Y\r\n+            position_apres_avance = rover.valeur_X\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     # def test_recule(self):\r\n"
+                },
+                {
+                    "date": 1670919233311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-\r\n+            #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n"
+                },
+                {
+                    "date": 1670919416811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_Y\r\n+            position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n \r\n@@ -58,9 +58,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-\r\n+            #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     # def test_recule(self):\r\n     #     # Arrange\r\n"
+                },
+                {
+                    "date": 1670919613529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_avance = rover.valeur_X\r\n-            position_avant_avance = position_avant_avance + 1\r\n+            position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n"
+                },
+                {
+                    "date": 1670919675813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,20 +62,53 @@\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     # def test_recule(self):\r\n-    #     # Arrange\r\n-    #     rover = Rover()\r\n-    #     rover.axe_x = 5\r\n-    #     rover.axe_y = 5\r\n-    #     self.cardinal = \"Nord\"\r\n+            # Arrange\r\n+        rover = Rover()\r\n \r\n-    #     # Action\r\n-    #     rover.avance()\r\n-        \r\n-    #     # Assert\r\n-    #     self.assertEqual(\"4 5 Nord\", rover.position())\r\n+        # Action et # Assert\r\n+        if rover.valeur_orientation == \"Nord\":\r\n+            position_avant_avance = rover.valeur_Y\r\n+            position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.avance()\r\n+            position_apres_avance = rover.valeur_Y\r\n+            #on teste si le rover à bien avancé.\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            \r\n \r\n+        if rover.valeur_orientation == \"Sud\":\r\n+            \r\n+            position_avant_avance = rover.valeur_Y\r\n+            position_avant_avance = position_avant_avance - 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.avance()\r\n+            position_apres_avance = rover.valeur_Y\r\n+            #on teste si le rover à bien avancé.\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+\r\n+        if rover.valeur_orientation == \"Est\":\r\n+            position_avant_avance = rover.valeur_X\r\n+            position_avant_avance = position_avant_avance + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.avance()\r\n+            position_apres_avance = rover.valeur_X\r\n+            #on teste si le rover à bien avancé.\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+\r\n+\r\n+        if rover.valeur_orientation == \"Ouest\":\r\n+            position_avant_avance = rover.valeur_X\r\n+            position_avant_avance = position_avant_avance - 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.avance()\r\n+            position_apres_avance = rover.valeur_X\r\n+            #on teste si le rover à bien avancé.\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+\r\n     # def test_limite_map(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 10\r\n"
+                },
+                {
+                    "date": 1670919681421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,9 +61,9 @@\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n-    # def test_recule(self):\r\n+     def test_recule(self):\r\n             # Arrange\r\n         rover = Rover()\r\n \r\n         # Action et # Assert\r\n"
+                },
+                {
+                    "date": 1670919691306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,10 +61,10 @@\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n-     def test_recule(self):\r\n-            # Arrange\r\n+    def test_recule(self):\r\n+        # Arrange\r\n         rover = Rover()\r\n \r\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n"
+                },
+                {
+                    "date": 1670919761300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n \r\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_avance = rover.valeur_Y\r\n-            position_avant_avance = position_avant_avance + 1\r\n+            posi = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n"
+                },
+                {
+                    "date": 1670919770567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,10 +67,10 @@\n         rover = Rover()\r\n \r\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n-            position_avant_avance = rover.valeur_Y\r\n-            posi = position_avant_avance + 1\r\n+            position_avant_recule = rover.valeur_Y\r\n+            position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n"
+                },
+                {
+                    "date": 1670919781728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,10 +68,10 @@\n \r\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n-            position_avant_avance = position_avant_avance + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            position_avant_recule = position_avant_recule + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919789897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,13 +69,13 @@\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_re(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n"
+                },
+                {
+                    "date": 1670919800437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_re(position_avant_recule)\r\n+            rover.traitement_depassement_de_limite_pour_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919809046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n-            rover.traitement_depassement_de_limite_pour_teste_recule(position_avant_recule)\r\n+            rover.traitement_depassement_limite__teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919865413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n@@ -69,9 +69,9 @@\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n-            rover.traitement_depassement_limite__teste_recule(position_avant_recule)\r\n+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919871109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         # Action et # Assert\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n@@ -34,9 +34,9 @@\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n@@ -45,9 +45,9 @@\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919910652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,9 @@\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n-            position_avant_avance = rover.valeur_Y\r\n+            position_avant_recule = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n"
+                },
+                {
+                    "date": 1670919923123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,14 +79,14 @@\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n-            position_avant_avance = position_avant_avance - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            position_avant_recule = position_avant_recule - 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n"
+                },
+                {
+                    "date": 1670919938780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,10 +86,8 @@\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n-\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n"
+                },
+                {
+                    "date": 1670919960705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n-            position_avant_avance = rover.valeur_X\r\n+            position_avant_recule = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670919971015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,10 +88,10 @@\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n-            position_avant_avance = position_avant_avance + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            position_avant_recule = position_avant_recule + 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670919984445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,13 +93,13 @@\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n-            position_avant_avance = rover.valeur_X\r\n+            position_avant_recule = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670919990287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,14 +98,14 @@\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n-            position_avant_avance = position_avant_avance - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)\r\n+            position_avant_recule = position_avant_recule - 1\r\n+            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n     # def test_limite_map(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670920001761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670920040264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,19 +89,19 @@\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_X\r\n+            position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_recule)\r\n+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n"
+                },
+                {
+                    "date": 1670920047824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_recule, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n@@ -93,9 +93,9 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_recule, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670920054276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,9 +71,9 @@\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_Y\r\n+            position_apres_recule = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n \r\n@@ -82,11 +82,11 @@\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_Y\r\n+            position_apres_recule = rover.valeur_Y\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_recule, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n"
+                },
+                {
+                    "date": 1670920062528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,9 +101,9 @@\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n-            position_apres_avance = rover.valeur_X\r\n+            position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_avance)\r\n \r\n     # def test_limite_map(self):\r\n"
+                },
+                {
+                    "date": 1670920186899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -103,23 +103,10 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n-            self.assertEqual(position_avant_recule, position_apres_avance)\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-    # def test_limite_map(self):\r\n-    #     # Arrange\r\n-    #     rover = Rover()\r\n-    #     rover.axe_x = 10\r\n-    #     rover.axe_y = 5\r\n-    #     self.cardinal = \"Nord\"\r\n-\r\n-    #     # Action\r\n-    #     rover.avance()\r\n-        \r\n-    #     # Assert\r\n-    #     self.assertEqual(\"0 5 Nord\", rover.position())\r\n-\r\n     # def test_tourne_gauche(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670920216788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,20 +105,20 @@\n             position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-    # def test_tourne_gauche(self):\r\n-    #     # Arrange\r\n-    #     rover = Rover()\r\n-    #     rover.axe_x = 5\r\n-    #     rover.axe_y = 5\r\n-    #     self.cardinal = \"Nord\"\r\n+    def test_tourne_gauche(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n \r\n-    #     # Action\r\n-    #     rover.tourne_gauche()\r\n+        # Action\r\n+        rover.tourne_gauche()\r\n         \r\n-    #     # Assert\r\n-    #     self.assertEqual(\"5 5 Ouest\", rover.position())\r\n+        # Assert\r\n+        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n \r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670920280385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,20 +105,20 @@\n             position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-    def test_tourne_gauche(self):\r\n-        # Arrange\r\n-        rover = Rover()\r\n-        rover.axe_x = 5\r\n-        rover.axe_y = 5\r\n-        self.cardinal = \"Nord\"\r\n+    # def test_tourne_gauche(self):\r\n+    #     # Arrange\r\n+    #     rover = Rover()\r\n+    #     rover.axe_x = 5\r\n+    #     rover.axe_y = 5\r\n+    #     self.cardinal = \"Nord\"\r\n \r\n-        # Action\r\n-        rover.tourne_gauche()\r\n+    #     # Action\r\n+    #     rover.tourne_gauche()\r\n         \r\n-        # Assert\r\n-        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n+    #     # Assert\r\n+    #     self.assertEqual(\"5 5 Ouest\", rover.position())\r\n \r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670920317205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,20 +105,20 @@\n             position_apres_recule = rover.valeur_X\r\n             #on teste si le rover à bien avancé.\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-    # def test_tourne_gauche(self):\r\n-    #     # Arrange\r\n-    #     rover = Rover()\r\n-    #     rover.axe_x = 5\r\n-    #     rover.axe_y = 5\r\n-    #     self.cardinal = \"Nord\"\r\n+    def test_tourne_gauche(self):\r\n+        # Arrange\r\n+        rover = Rover()\r\n+        rover.axe_x = 5\r\n+        rover.axe_y = 5\r\n+        self.cardinal = \"Nord\"\r\n \r\n-    #     # Action\r\n-    #     rover.tourne_gauche()\r\n+        # Action\r\n+        rover.tourne_gauche()\r\n         \r\n-    #     # Assert\r\n-    #     self.assertEqual(\"5 5 Ouest\", rover.position())\r\n+        # Assert\r\n+        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n \r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670920607058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,11 +108,8 @@\n \r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n-        rover.axe_x = 5\r\n-        rover.axe_y = 5\r\n-        self.cardinal = \"Nord\"\r\n \r\n         # Action\r\n         rover.tourne_gauche()\r\n         \r\n"
+                },
+                {
+                    "date": 1670920760985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     def test_avance(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        # Action et # Assert\r\n+        # Action et \r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n"
+                },
+                {
+                    "date": 1670920767353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,16 +19,17 @@\n     def test_avance(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        # Action et \r\n+        # Action \r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            #on teste si le rover à bien avancé.\r\n+            \r\n+            # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670920776174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            \r\n+\r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n \r\n@@ -38,9 +38,9 @@\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n"
+                },
+                {
+                    "date": 1670920781233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n"
+                },
+                {
+                    "date": 1670920790730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n-\r\n+        \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance - 1\r\n@@ -59,9 +59,9 @@\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     def test_recule(self):\r\n         # Arrange\r\n"
+                },
+                {
+                    "date": 1670920798078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n-        \r\n+        # Action \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_avance = rover.valeur_Y\r\n             position_avant_avance = position_avant_avance - 1\r\n@@ -43,8 +43,9 @@\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n+        # Action \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n"
+                },
+                {
+                    "date": 1670920846367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n             position_apres_avance = rover.valeur_X\r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n-\r\n+        # Action \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n@@ -74,9 +74,9 @@\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n \r\n         if rover.valeur_orientation == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670920861068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n     def test_recule(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        # Action et # Assert\r\n+        # Action\r\n         if rover.valeur_orientation == \"Nord\":\r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n@@ -85,9 +85,9 @@\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670920866376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n         if rover.valeur_orientation == \"Ouest\":\r\n"
+                },
+                {
+                    "date": 1670920876950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n             position_apres_recule = rover.valeur_Y\r\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n-\r\n+        # Action\r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n@@ -104,9 +104,9 @@\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n-            #on teste si le rover à bien avancé.\r\n+            # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n"
+                },
+                {
+                    "date": 1670920882522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,8 +88,9 @@\n             position_apres_recule = rover.valeur_Y\r\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n+        # Action\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n@@ -97,9 +98,9 @@\n             position_apres_recule = rover.valeur_X\r\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-\r\n+        # Action\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n"
+                },
+                {
+                    "date": 1670920950193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,8 @@\n             position_apres_avance = rover.valeur_Y\r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n-\r\n         # Action \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n"
+                },
+                {
+                    "date": 1670921162012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,17 +107,10 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n     def test_tourne_gauche(self):\r\n-        # Arrange\r\n-        rover = Rover()\r\n+        if \r\n \r\n-        # Action\r\n-        rover.tourne_gauche()\r\n-        \r\n-        # Assert\r\n-        self.assertEqual(\"5 5 Ouest\", rover.position())\r\n-\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921185708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,9 +107,9 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n     def test_tourne_gauche(self):\r\n-        if \r\n+        if rover\r\n \r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670921191115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,9 +107,9 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n     def test_tourne_gauche(self):\r\n-        if rover\r\n+        if \r\n \r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670921211633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,10 +107,10 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n     def test_tourne_gauche(self):\r\n-        if \r\n-\r\n+        # Arrange\r\n+        rover = Rover()\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921218098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,8 +109,11 @@\n \r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n+        \r\n+\r\n+\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921303943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,11 +109,13 @@\n \r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n+\r\n         \r\n \r\n \r\n+\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921353790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,9 +110,9 @@\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        \r\n+        if rover.\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921363298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,9 +110,9 @@\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        if rover.\r\n+        if rover.cardinal == \"Sud\"\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921423150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,12 +110,18 @@\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        if rover.cardinal == \"Sud\"\r\n+        if rover.cardinal == \"Sud\":\r\n+        \r\n+        if rover.cardinal == \"Sud\":\r\n+        \r\n+        if rover.cardinal == \"Sud\":\r\n \r\n+        if rover.cardinal == \"Sud\":\r\n \r\n \r\n+\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921429849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,9 +110,9 @@\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n-        if rover.cardinal == \"Sud\":\r\n+        if rover.cardinal == \"Nord\":\r\n         \r\n         if rover.cardinal == \"Sud\":\r\n         \r\n         if rover.cardinal == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670921435263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,11 +114,11 @@\n         if rover.cardinal == \"Nord\":\r\n         \r\n         if rover.cardinal == \"Sud\":\r\n         \r\n-        if rover.cardinal == \"Sud\":\r\n+        if rover.cardinal == \"Est\":\r\n \r\n-        if rover.cardinal == \"Sud\":\r\n+        if rover.cardinal == \"Ouest\":\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921449832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,10 +118,12 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n+        \r\n \r\n \r\n+\r\n     # def test_tourne_droite(self):\r\n     #     # Arrange\r\n     #     rover = Rover()\r\n     #     rover.axe_x = 5\r\n"
+                },
+                {
+                    "date": 1670921457057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        \r\n+        self.\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921471283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.\r\n+        self.asser\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921476861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.asser\r\n+        self.assertEqual\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921481901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual\r\n+        self.assertEqual(,)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921744209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual(,)\r\n+        self.assertEqual(avant,)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921749762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual(avant,)\r\n+        self.assertEqual(avannt,)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921755221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual(avannt,)\r\n+        self.assertEqual(avannt_tourne,)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921761895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual(avannt_tourne,)\r\n+        self.assertEqual(avannt_tourne, apres_tourne)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921768246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-        \r\n+            \r\n         if rover.cardinal == \"Sud\":\r\n         \r\n         if rover.cardinal == \"Est\":\r\n \r\n"
+                },
+                {
+                    "date": 1670921922379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n-        self.assertEqual(avannt_tourne, apres_tourne)\r\n+        self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n"
+                },
+                {
+                    "date": 1670921939167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            \r\n+            avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Sud\":\r\n         \r\n         if rover.cardinal == \"Est\":\r\n \r\n"
+                },
+                {
+                    "date": 1670921947757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = rover.cardinal\r\n+            avant_tourne = rover.cardinal()\r\n         if rover.cardinal == \"Sud\":\r\n         \r\n         if rover.cardinal == \"Est\":\r\n \r\n"
+                },
+                {
+                    "date": 1670921968124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,11 +111,11 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = rover.cardinal()\r\n+            avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Sud\":\r\n-        \r\n+            avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Est\":\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n \r\n"
+                },
+                {
+                    "date": 1670921973803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,11 +115,11 @@\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Est\":\r\n-\r\n+            avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Ouest\":\r\n-\r\n+            avant_tourne = rover.cardinal\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670921993462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,14 +112,16 @@\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n+            \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n+\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670921999240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,9 +112,9 @@\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n-            \r\n+            rover.tourne_gauche\r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n"
+                },
+                {
+                    "date": 1670922014411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,9 +112,10 @@\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n-            rover.tourne_gauche\r\n+            rover.tourne_gauche()\r\n+            \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n"
+                },
+                {
+                    "date": 1670922019574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,11 +113,13 @@\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            \r\n+\r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n+            rover.tourne_gauche()\r\n+            \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n"
+                },
+                {
+                    "date": 1670922025166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,13 +117,16 @@\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            \r\n+\r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n+            rover.tourne_gauche()\r\n+\r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n+            rover.tourne_gauche()\r\n \r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922102558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,8 +113,9 @@\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n+            apr\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922108533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,9 +113,9 @@\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            apr\r\n+            après_tour\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922115620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,9 +113,9 @@\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            après_tour\r\n+            apres_tourne\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922120708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,9 +113,9 @@\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            apres_tourne\r\n+            apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922128863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,8 +118,9 @@\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n+            apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922134585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -123,8 +123,9 @@\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n+            apres_tourne = \r\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670922140369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -123,13 +123,14 @@\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            apres_tourne = \r\n+            apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n+            \r\n \r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922146262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,9 +128,9 @@\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = rover.cardinal\r\n             rover.tourne_gauche()\r\n-            \r\n+            apres_tourne = rover.cardinal\r\n \r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922183237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = rover.cardinal\r\n+            avant_tourne = \"rover.cardinal\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670922192273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = \"rover.cardinal\"\r\n+            avant_tourne = \"Oues\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670922208128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,14 +111,14 @@\n         # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = \"Oues\"\r\n+            avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n-            avant_tourne = rover.cardinal\r\n+            avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n"
+                },
+                {
+                    "date": 1670922216387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n-            avant_tourne = \"Ouest\"\r\n+            avant_tourne = \"Esr\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n"
+                },
+                {
+                    "date": 1670922222342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,14 +116,14 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n-            avant_tourne = \"Esr\"\r\n+            avant_tourne = \"Est\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n-            avant_tourne = rover.cardinal\r\n+            avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n"
+                },
+                {
+                    "date": 1670922231516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,14 +121,14 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n-            avant_tourne = \"Ouest\"\r\n+            avant_tourne = \"Nord\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n-            avant_tourne = rover.cardinal\r\n+            avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n"
+                },
+                {
+                    "date": 1670922237386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -126,9 +126,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n-            avant_tourne = \"Ouest\"\r\n+            avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n"
+                },
+                {
+                    "date": 1670922364889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -135,20 +135,33 @@\n \r\n \r\n \r\n     # def test_tourne_droite(self):\r\n-    #     # Arrange\r\n-    #     rover = Rover()\r\n-    #     rover.axe_x = 5\r\n-    #     rover.axe_y = 5\r\n-    #     self.cardinal = \"Nord\"\r\n+    # Arrange\r\n+        rover = Rover()\r\n \r\n-    #     # Action\r\n-    #     rover.tourne_droite()\r\n+        if rover.cardinal == \"Nord\":\r\n+            avant_tourne = \"Ouest\"\r\n+            rover.tourne_gauche()\r\n+            apres_tourne = rover.cardinal\r\n+\r\n+        if rover.cardinal == \"Sud\":\r\n+            avant_tourne = \"Est\"\r\n+            rover.tourne_gauche()\r\n+            apres_tourne = rover.cardinal\r\n+\r\n+        if rover.cardinal == \"Est\":\r\n+            avant_tourne = \"Nord\"\r\n+            rover.tourne_gauche()\r\n+            apres_tourne = rover.cardinal\r\n+\r\n+        if rover.cardinal == \"Ouest\":\r\n+            avant_tourne = \"Sud\"\r\n+            rover.tourne_gauche()\r\n+            apres_tourne = rover.cardinal\r\n+\r\n+        self.assertEqual(avant_tourne, apres_tourne)\r\n         \r\n-    #     # Assert\r\n-    #     self.assertEqual(\"5 5 Est\", rover.position())\r\n-        \r\n     \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670922374319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -134,10 +134,10 @@\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n \r\n-    # def test_tourne_droite(self):\r\n-    # Arrange\r\n+    def test_tourne_droite(self):\r\n+        # Arrange\r\n         rover = Rover()\r\n \r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Ouest\"\r\n"
+                },
+                {
+                    "date": 1670922389123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -138,8 +138,9 @@\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n+        # Action\r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n"
+                },
+                {
+                    "date": 1670922397728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,8 +159,9 @@\n             avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n+        # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n         \r\n     \r\n \r\n"
+                },
+                {
+                    "date": 1670922404525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -130,8 +130,9 @@\n             avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n+        # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922456640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -134,9 +134,8 @@\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n \r\n-\r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
+                },
+                {
+                    "date": 1670922467038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -140,9 +140,9 @@\n         rover = Rover()\r\n \r\n         # Action\r\n         if rover.cardinal == \"Nord\":\r\n-            avant_tourne = \"Ouest\"\r\n+            avant_tourne = \"Est\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n"
+                },
+                {
+                    "date": 1670922473421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -145,9 +145,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Sud\":\r\n-            avant_tourne = \"Est\"\r\n+            avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n"
+                },
+                {
+                    "date": 1670922479071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Est\":\r\n-            avant_tourne = \"Nord\"\r\n+            avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n"
+                },
+                {
+                    "date": 1670922568234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -133,9 +133,8 @@\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n-\r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n@@ -155,9 +154,9 @@\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n-            avant_tourne = \"Sud\"\r\n+            avant_tourne = \"Nord\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n         # Assert\r\n"
+                },
+                {
+                    "date": 1670922575077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,8 +106,9 @@\n             position_apres_recule = rover.valeur_X\r\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n+\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
+                },
+                {
+                    "date": 1670922688478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,8 +107,9 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n+\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n@@ -161,9 +162,8 @@\n             apres_tourne = rover.cardinal\r\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n-        \r\n-    \r\n+           \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670922694422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -163,7 +163,6 @@\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n            \r\n-\r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670922731376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,9 +104,9 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             # Assert\r\n-            self.assertEqual(position_avant_recule, position_apres_recule)\r\n+        self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n \r\n     def test_tourne_gauche(self):\r\n"
+                },
+                {
+                    "date": 1670922737904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,19 +93,18 @@\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n-            # Assert\r\n-            self.assertEqual(position_avant_recule, position_apres_recule)\r\n+            \r\n \r\n         # Action\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n-            # Assert\r\n+        # Assert\r\n         self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922744163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,10 +83,9 @@\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n-            # Assert\r\n-            self.assertEqual(position_avant_recule, position_apres_recule)\r\n+            \r\n \r\n         # Action\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n@@ -102,8 +101,10 @@\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n+\r\n+\r\n         # Assert\r\n         self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922751488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,12 +72,10 @@\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n-            # Assert\r\n-            self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n-        # Action\r\n+\r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n"
+                },
+                {
+                    "date": 1670922761312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,8 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n             \r\n-\r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n@@ -83,18 +82,16 @@\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n             \r\n \r\n-        # Action\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             \r\n \r\n-        # Action\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n"
+                },
+                {
+                    "date": 1670922775510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,25 +81,22 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n             \r\n-\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             \r\n-\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n \r\n-\r\n         # Assert\r\n         self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670922879293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,8 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-\r\n-            # Assert\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n         # Action \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n"
+                },
+                {
+                    "date": 1670922889999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,8 @@\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-            # Assert\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670922896079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,8 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-            # Assert\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_avance = rover.valeur_X\r\n"
+                },
+                {
+                    "date": 1670922902635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,8 @@\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-            # Assert\r\n-            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     def test_recule(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670922911539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n             position_apres_avance = rover.valeur_X\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Ouest\":\r\n+            \r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n"
+                },
+                {
+                    "date": 1670922918841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,14 +46,17 @@\n             position_apres_avance = rover.valeur_X\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Ouest\":\r\n-            \r\n+\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n+        \r\n+        # Assert\r\n+        self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     def test_recule(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670923014254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,11 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n+\r\n+            # Assert\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n         # Action \r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n@@ -35,28 +38,30 @@\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n+            # Assert\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n+            # Assert\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n         # Action \r\n         if rover.valeur_orientation == \"Ouest\":\r\n-\r\n             position_avant_avance = rover.valeur_X\r\n             position_avant_avance = position_avant_avance - 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_X\r\n-        \r\n-        # Assert\r\n-        self.assertEqual(position_avant_avance, position_apres_avance)\r\n+            # Assert\r\n+            self.assertEqual(position_avant_avance, position_apres_avance)\r\n \r\n     def test_recule(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670923021199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,8 +95,9 @@\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n \r\n+\r\n         # Assert\r\n         self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1670923027896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,24 +72,31 @@\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n+            # Assert\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n             \r\n+        # Action\r\n         if rover.valeur_orientation == \"Sud\":\r\n             \r\n             position_avant_recule = rover.valeur_Y\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n             \r\n+\r\n+        # Action\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n             \r\n+\r\n+        # Action\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n"
+                },
+                {
+                    "date": 1670923034768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,33 +83,33 @@\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_Y\r\n-            \r\n+            # Assert\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n         # Action\r\n         if rover.valeur_orientation == \"Est\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule + 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n-            \r\n+            # Assert\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n         # Action\r\n         if rover.valeur_orientation == \"Ouest\":\r\n             position_avant_recule = rover.valeur_X\r\n             position_avant_recule = position_avant_recule - 1\r\n             rover.traitement_depassement_limite_teste_recule(position_avant_recule)\r\n             rover.avance()\r\n             position_apres_recule = rover.valeur_X\r\n+            # Assert\r\n+            self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n-        # Assert\r\n-        self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n-\r\n-\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n@@ -163,6 +163,7 @@\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n            \r\n+\r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670923049513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,8 @@\n             position_avant_avance = position_avant_avance + 1\r\n             rover.traitement_depassement_limite_teste_avance(position_avant_avance)\r\n             rover.avance()\r\n             position_apres_avance = rover.valeur_Y\r\n-\r\n             # Assert\r\n             self.assertEqual(position_avant_avance, position_apres_avance)\r\n             \r\n         # Action \r\n@@ -162,8 +161,9 @@\n             apres_tourne = rover.cardinal\r\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n-           \r\n+        \r\n+   \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670923091116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -131,10 +131,9 @@\n             avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n \r\n-        # Assert\r\n-        self.assertEqual(avant_tourne, apres_tourne)\r\n+        \r\n \r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n"
+                },
+                {
+                    "date": 1670923096348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,8 +115,10 @@\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = \"Est\"\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670923103095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,8 +122,10 @@\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = \"Est\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = \"Nord\"\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670923113773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,13 +129,17 @@\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = \"Nord\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         \r\n \r\n     def test_tourne_droite(self):\r\n@@ -146,8 +150,10 @@\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Est\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n"
+                },
+                {
+                    "date": 1670923120618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -157,18 +157,24 @@\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = \"Ouest\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = \"Sud\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = \"Nord\"\r\n             rover.tourne_gauche()\r\n             apres_tourne = rover.cardinal\r\n+            # Assert\r\n+            self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         # Assert\r\n         self.assertEqual(avant_tourne, apres_tourne)\r\n         \r\n"
+                },
+                {
+                    "date": 1670923153388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -174,11 +174,8 @@\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n-        # Assert\r\n-        self.assertEqual(avant_tourne, apres_tourne)\r\n-        \r\n    \r\n \r\n if __name__ == '__main__':\r\n     unittest.main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670923586989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -140,9 +140,8 @@\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         \r\n-\r\n     def test_tourne_droite(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
+                },
+                {
+                    "date": 1670923867789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,8 +107,9 @@\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n \r\n+\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n@@ -147,9 +148,9 @@\n \r\n         # Action\r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Est\"\r\n-            rover.tourne_gauche()\r\n+            rover.\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n"
+                },
+                {
+                    "date": 1670923876854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -148,9 +148,9 @@\n \r\n         # Action\r\n         if rover.cardinal == \"Nord\":\r\n             avant_tourne = \"Est\"\r\n-            rover.\r\n+            rover.tourne_droite()\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n@@ -162,9 +162,9 @@\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Est\":\r\n             avant_tourne = \"Sud\"\r\n-            rover.tourne_gauche()\r\n+            rover.tourne_droite()\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n"
+                },
+                {
+                    "date": 1670923882378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -155,9 +155,9 @@\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Sud\":\r\n             avant_tourne = \"Ouest\"\r\n-            rover.tourne_gauche()\r\n+            rover.tourne_droite()\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n@@ -169,9 +169,9 @@\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n         if rover.cardinal == \"Ouest\":\r\n             avant_tourne = \"Nord\"\r\n-            rover.tourne_gauche()\r\n+            rover.tourne_droite()\r\n             apres_tourne = rover.cardinal\r\n             # Assert\r\n             self.assertEqual(avant_tourne, apres_tourne)\r\n \r\n"
+                },
+                {
+                    "date": 1670923892616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,10 +106,8 @@\n             # Assert\r\n             self.assertEqual(position_avant_recule, position_apres_recule)\r\n \r\n \r\n-\r\n-\r\n     def test_tourne_gauche(self):\r\n         # Arrange\r\n         rover = Rover()\r\n \r\n"
                 }
             ],
             "date": 1670840082815,

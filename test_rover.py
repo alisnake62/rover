@@ -20,95 +20,160 @@ class TestRover(unittest.TestCase):
         # Arrange
         rover = Rover()
 
-        # Action et # Assert
+        # Action 
         if rover.valeur_orientation == "Nord":
             position_avant_avance = rover.valeur_Y
             position_avant_avance = position_avant_avance + 1
-            rover.traitement_de_un_depassement_de_limite_pour_teste_avance(position_avant_avance)
+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
             rover.avance()
             position_apres_avance = rover.valeur_Y
-
+            # Assert
             self.assertEqual(position_avant_avance, position_apres_avance)
             
-
+        # Action 
         if rover.valeur_orientation == "Sud":
+            
             position_avant_avance = rover.valeur_Y
-            rover.avance()
             position_avant_avance = position_avant_avance - 1
+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
+            rover.avance()
             position_apres_avance = rover.valeur_Y
-
+            # Assert
             self.assertEqual(position_avant_avance, position_apres_avance)
 
+        # Action 
         if rover.valeur_orientation == "Est":
             position_avant_avance = rover.valeur_X
+            position_avant_avance = position_avant_avance + 1
+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
             rover.avance()
-            position_avant_avance = position_avant_avance - 1
-            position_apres_avance = rover.valeur_Y
-
+            position_apres_avance = rover.valeur_X
+            # Assert
             self.assertEqual(position_avant_avance, position_apres_avance)
 
-
+        # Action 
         if rover.valeur_orientation == "Ouest":
             position_avant_avance = rover.valeur_X
-            position_avant_avance = position_avant_avance + 1
+            position_avant_avance = position_avant_avance - 1
+            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
             rover.avance()
-            position_apres_avance = rover.valeur_Y
-
+            position_apres_avance = rover.valeur_X
+            # Assert
             self.assertEqual(position_avant_avance, position_apres_avance)
 
-    # def test_recule(self):
-    #     # Arrange
-    #     rover = Rover()
-    #     rover.axe_x = 5
-    #     rover.axe_y = 5
-    #     self.cardinal = "Nord"
+    def test_recule(self):
+        # Arrange
+        rover = Rover()
 
-    #     # Action
-    #     rover.avance()
+        # Action
+        if rover.valeur_orientation == "Nord":
+            position_avant_recule = rover.valeur_Y
+            position_avant_recule = position_avant_recule + 1
+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
+            rover.avance()
+            position_apres_recule = rover.valeur_Y
+            # Assert
+            self.assertEqual(position_avant_recule, position_apres_recule)
+            
+        # Action
+        if rover.valeur_orientation == "Sud":
+            
+            position_avant_recule = rover.valeur_Y
+            position_avant_recule = position_avant_recule - 1
+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
+            rover.avance()
+            position_apres_recule = rover.valeur_Y
+            # Assert
+            self.assertEqual(position_avant_recule, position_apres_recule)
+
+        # Action
+        if rover.valeur_orientation == "Est":
+            position_avant_recule = rover.valeur_X
+            position_avant_recule = position_avant_recule + 1
+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
+            rover.avance()
+            position_apres_recule = rover.valeur_X
+            # Assert
+            self.assertEqual(position_avant_recule, position_apres_recule)
+
+        # Action
+        if rover.valeur_orientation == "Ouest":
+            position_avant_recule = rover.valeur_X
+            position_avant_recule = position_avant_recule - 1
+            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
+            rover.avance()
+            position_apres_recule = rover.valeur_X
+            # Assert
+            self.assertEqual(position_avant_recule, position_apres_recule)
+
+
+    def test_tourne_gauche(self):
+        # Arrange
+        rover = Rover()
+
+        if rover.cardinal == "Nord":
+            avant_tourne = "Ouest"
+            rover.tourne_gauche()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
+
+        if rover.cardinal == "Sud":
+            avant_tourne = "Est"
+            rover.tourne_gauche()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
+
+        if rover.cardinal == "Est":
+            avant_tourne = "Nord"
+            rover.tourne_gauche()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
+
+        if rover.cardinal == "Ouest":
+            avant_tourne = "Sud"
+            rover.tourne_gauche()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
+
         
-    #     # Assert
-    #     self.assertEqual("4 5 Nord", rover.position())
+    def test_tourne_droite(self):
+        # Arrange
+        rover = Rover()
 
-    # def test_limite_map(self):
-    #     # Arrange
-    #     rover = Rover()
-    #     rover.axe_x = 10
-    #     rover.axe_y = 5
-    #     self.cardinal = "Nord"
+        # Action
+        if rover.cardinal == "Nord":
+            avant_tourne = "Est"
+            rover.tourne_droite()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
 
-    #     # Action
-    #     rover.avance()
-        
-    #     # Assert
-    #     self.assertEqual("0 5 Nord", rover.position())
+        if rover.cardinal == "Sud":
+            avant_tourne = "Ouest"
+            rover.tourne_droite()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
 
-    # def test_tourne_gauche(self):
-    #     # Arrange
-    #     rover = Rover()
-    #     rover.axe_x = 5
-    #     rover.axe_y = 5
-    #     self.cardinal = "Nord"
+        if rover.cardinal == "Est":
+            avant_tourne = "Sud"
+            rover.tourne_droite()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
 
-    #     # Action
-    #     rover.tourne_gauche()
-        
-    #     # Assert
-    #     self.assertEqual("5 5 Ouest", rover.position())
+        if rover.cardinal == "Ouest":
+            avant_tourne = "Nord"
+            rover.tourne_droite()
+            apres_tourne = rover.cardinal
+            # Assert
+            self.assertEqual(avant_tourne, apres_tourne)
 
-    # def test_tourne_droite(self):
-    #     # Arrange
-    #     rover = Rover()
-    #     rover.axe_x = 5
-    #     rover.axe_y = 5
-    #     self.cardinal = "Nord"
-
-    #     # Action
-    #     rover.tourne_droite()
-        
-    #     # Assert
-    #     self.assertEqual("5 5 Est", rover.position())
-        
-    
+   
 
 if __name__ == '__main__':
     unittest.main()
