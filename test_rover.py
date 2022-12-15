@@ -68,9 +68,9 @@ class TestRover(unittest.TestCase):
         # Action
         if rover.valeur_orientation == "Nord":
             position_avant_recule = rover.valeur_Y
-            position_avant_recule = position_avant_recule + 1
+            position_avant_recule = position_avant_recule - 1
             rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.avance()
+            rover.recule()
             position_apres_recule = rover.valeur_Y
             # Assert
             self.assertEqual(position_avant_recule, position_apres_recule)
@@ -79,9 +79,9 @@ class TestRover(unittest.TestCase):
         if rover.valeur_orientation == "Sud":
             
             position_avant_recule = rover.valeur_Y
-            position_avant_recule = position_avant_recule - 1
+            position_avant_recule = position_avant_recule + 1
             rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.avance()
+            rover.recule()
             position_apres_recule = rover.valeur_Y
             # Assert
             self.assertEqual(position_avant_recule, position_apres_recule)
@@ -89,9 +89,9 @@ class TestRover(unittest.TestCase):
         # Action
         if rover.valeur_orientation == "Est":
             position_avant_recule = rover.valeur_X
-            position_avant_recule = position_avant_recule + 1
+            position_avant_recule = position_avant_recule - 1
             rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.avance()
+            rover.recule()
             position_apres_recule = rover.valeur_X
             # Assert
             self.assertEqual(position_avant_recule, position_apres_recule)
@@ -99,9 +99,9 @@ class TestRover(unittest.TestCase):
         # Action
         if rover.valeur_orientation == "Ouest":
             position_avant_recule = rover.valeur_X
-            position_avant_recule = position_avant_recule - 1
+            position_avant_recule = position_avant_recule + 1
             rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.avance()
+            rover.recule()
             position_apres_recule = rover.valeur_X
             # Assert
             self.assertEqual(position_avant_recule, position_apres_recule)

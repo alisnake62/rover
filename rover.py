@@ -45,9 +45,7 @@ class Position():
         print(self.axe_y, self.axe_x, self.cardinal)
 
 
-class Deplacement(Position):
-
-    # ces deux methodes sont des methodes pour les tests il faut trouver ou les mettre
+    # le reste des methodes sont des methodes pour les tests il faut trouver ou les mettre
     def traitement_depassement_limite_teste_avance(position_avant_avance):
         if position_avant_avance > 10: position_avant_avance = 0
         if position_avant_avance < 0:  position_avant_avance = 10
@@ -62,6 +60,9 @@ class Deplacement(Position):
         if self.axe_x < 0:  self.axe_x = 10
         if self.axe_y > 10: self.axe_y = 0
         if self.axe_y < 0:  self.axe_y = 10
+
+
+class Deplacement(Position):
 
     def avance(self):
         #avancement enfonction de la direction
