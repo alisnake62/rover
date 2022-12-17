@@ -1,125 +1,120 @@
-import random
-# class Cardinal():
+from exception import BadPointValueException, BadCardinalValueException, OutSideMapException
 
-#     Sud = "Sud"
-#     Ouest = "Ouest"
-#     Est = "Est"
-#     Nord = "Nord"
+class Point:
 
-#     def __init__(self, value):
-#         self._value = value
+    def __init__(self, value:int=0) -> None:
 
-#     def __eq__(self, otherCardinal):
-#         return self._value == otherCardinal._value
+        if not isinstance(value, int)   : raise BadPointValueException(message="The Point Value Must Be Integer")
+        if value < 0                    : raise BadPointValueException(message="The Point Value Must Positive or 0")
+        self._value = value
 
-# class Orientation():
+    def __eq__(self, otherPoint: object) -> bool:
+        return otherPoint._value == self._value
 
-#     def __init__(self, cardinal:Cardinal):
-#         self._cardinal = cardinal
+    def __gt__(self, otherPoint:object) -> bool:
+        return self._value > otherPoint._value
 
-#     #besoin d'explication pour cette methode
-#     def __eq__(self, otherOrientation):
-#         return self._cardinal == otherOrientation._cardinal
+class Map:
 
-#     def tourne_droite(self):
-#         if self._cardinal == Cardinal("Nord"): return Cardinal("Est")
-        
+    def __init__(self, yMax:Point, xMax:Point) -> None:
+        self._yMax = yMax
+        self._xMax = xMax
 
-class Position():
-    
-    def __init__(self, point_y, point_x, cardinal):
-        self.cardinal = cardinal
-        self.axe_y = point_y
-        self.axe_x = point_x
+    def isGoodYPoint(self, point:Point) -> bool:
+        if point > self._yMax: return False
+        return True
 
-    def valeur_Y(self):
-        print(self.axe_y)
+    def isGoodXPoint(self, point:Point) -> bool:
+        if point > self._xMax: return False
+        return True
 
-    def valeur_X(self):
-        print(self.axe_x)
-    
-    def valeur_orientation(self):
-        print(self.cardinal)
+class Coordonnee:
 
-    def position(self):
-        print(self.axe_y, self.axe_x, self.cardinal)
+    def __init__(self, y:Point, x:Point) -> None:
+        self._y = y
+        self._x = x
 
+    def __eq__(self, otherCoordonnee: object) -> bool:
+        return otherCoordonnee._y == self._y and otherCoordonnee._x == self._x
 
-    # le reste des methodes sont des methodes pour les tests il faut trouver ou les mettre
-    def traitement_depassement_limite_teste_avance(position_avant_avance):
-        if position_avant_avance > 10: position_avant_avance = 0
-        if position_avant_avance < 0:  position_avant_avance = 10
+    def isInMap(self, map: Map) -> bool:
+        return map.isGoodYPoint(point=self._y) and map.isGoodXPoint(point=self._x)
 
-    def traitement_depassement_limite_teste_recule(position_avant_recule):
-        if position_avant_recule > 10: position_avant_recule = 0
-        if position_avant_recule < 0:  position_avant_recule = 10
+class Position:
 
-    def traitement_des_dépassement_de_limite(self):
-        # verification qu'il soit toujours sur la map
-        if self.axe_x > 10: self.axe_x = 0
-        if self.axe_x < 0:  self.axe_x = 10
-        if self.axe_y > 10: self.axe_y = 0
-        if self.axe_y < 0:  self.axe_y = 10
+    def __init__(self, startCoordonnee:Coordonnee) -> None:
+        self._coordonnee = startCoordonnee
 
+    def __eq__(self, otherposition: object) -> bool:
+        return otherposition._coordonnee == self._coordonnee
 
-class Deplacement(Position):
+    def isInMap(self, map:Map) -> bool:
+        return self._coordonnee.isInMap(map=map)
 
-    def avance(self):
-        #avancement enfonction de la direction
-        if self.cardinal == "Sud":     self.axe_y = self.axe_y - 1
-        if self.cardinal == "Nord":    self.axe_y = self.axe_y + 1
-        if self.cardinal == "Est":     self.axe_x = self.axe_x + 1
-        if self.cardinal == "Ouest":   self.axe_x = self.axe_x - 1
-        self.traitement_des_dépassement_de_limite()
+class Cardinal:
 
-    def recule(self):
-        #recule enfonction de la direction
-        if self.cardinal == "Sud":     self.axe_y = self.axe_y + 1
-        if self.cardinal == "Nord":    self.axe_y = self.axe_y - 1
-        if self.cardinal == "Est":     self.axe_x = self.axe_x - 1
-        if self.cardinal == "Ouest":   self.axe_x = self.axe_x + 1
-        self.traitement_des_dépassement_de_limite()
+    _orderedExpectedValue = ["North", "East", "South", "West"]
 
-    def tourne_droite(self):
-        test=1  
-        #change de direction vers la droite
-        if self.cardinal == "Sud" and test == 1:     
-            self.cardinal = "Ouest" 
-            test = 2
-        if self.cardinal == "Ouest" and test == 1:   
-            self.cardinal = "Nord"
-            test = 2
-        if self.cardinal == "Nord" and test == 1:    
-            self.cardinal = "Est"
-            test = 2
-        if self.cardinal == "Est" and test == 1:     
-            self.cardinal = "Sud"
-            test = 2
+    def __init__(self, value:str) -> None:
+        if value not in self._orderedExpectedValue: raise BadCardinalValueException()
+        self._index = self._orderedExpectedValue.index(value)
 
-    def tourne_gauche(self):
-        test=1  
-        #change de direction vers la gauche
-        if self.cardinal == "Sud" and test == 1: 
-            self.cardinal = "Est" 
-            test = 2
-        if self.cardinal == "Est" and test == 1:     
-            self.cardinal = "Nord"
-            test = 2
-        if self.cardinal == "Nord" and test == 1:    
-            self.cardinal = "Ouest"
-            test = 2
-        if self.cardinal == "Ouest" and test == 1:   
-            self.cardinal = "Sud"
-            test = 2
+    def __eq__(self, otherCardinal: object) -> bool:
+        return otherCardinal._index == self._index
+
+    def left(self):
+        self._index -= 1
+        if self._index == -1: self._index = 3
+        return self
+
+    def right(self):
+        self._index += 1
+        if self._index == 4: self._index = 0
+        return self
 
 
-class Rover(Deplacement):
+class Direction:
 
-    # definie une position et une orientation "random" au Rover 
-    def __init__(self):
-        self.cardinal = random.choice(["Nord", "Sud", "Est", "Ouest"])
+    def __init__(self, startCardinal:Cardinal) -> None:
+        self._cardinal = startCardinal
 
-        self.axe_y = random.randint(0, 10)
+    def __eq__(self, otherDirection: object) -> bool:
+        return otherDirection._cardinal == self._cardinal
 
-        self.axe_x = random.randint(0, 10)
-        
+    def turnLeft(self) -> None:
+        self._cardinal = self._cardinal.left()
+
+    def turnRight(self) -> None:
+        self._cardinal = self._cardinal.right()
+
+class Rover:
+
+    def __init__(self, startCoordonnee: Coordonnee, startCardinal:Cardinal) -> None:
+        self._position  = Position(startCoordonnee=startCoordonnee)
+        self._direction = Direction(startCardinal=startCardinal)
+
+    def __eq__(self, otherRover: object) -> bool:
+        return otherRover._position == self._position and otherRover._direction == self._direction
+
+    def isInMap(self, map:Map) -> bool:
+        return self._position.isInMap(map=map)
+
+    def turnLeft(self) -> None:
+        self._direction.turnLeft()
+
+    def turnRight(self) -> None:
+        self._direction.turnRight()
+
+class Deplacement:
+
+    def __init__(self, map:Map, rover:Rover) -> None:
+
+        if not rover.isInMap(map=map): raise OutSideMapException()
+        self._map   = map
+        self._rover = rover
+
+    def turnLeft(self) -> None:
+        self._rover.turnLeft()
+
+    def turnRight(self) -> None:
+        self._rover.turnRight()

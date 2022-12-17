@@ -1,178 +1,280 @@
 import unittest
 
-from rover import Rover
+from rover import Point, Map, Coordonnee, Position, Cardinal, Direction, Rover, Deplacement
+from test_builder_rover import (
+    PointBuilder,
+    CoordonneeBuilder,
+    CardinalBuilder,
+    DirectionBuilder,
+    PositionBuilder,
+    MapBuilder,
+    RoverBuilder,
+    DeplacementBuilder
+)
 
-class TestRover(unittest.TestCase):
+from exception import BadPointValueException, BadCardinalValueException, OutSideMapException
 
+class TestInitPoint(unittest.TestCase):
 
-    # def test_tourne_droite_1(self):
-    #     # Arrange
-    #     rover = Rover(orientation=Orientation(cardinal="Sud))
+    def test_point(self):
 
-    #     # Action
-    #     rover.tournedroite()
-
-    #     # Assert
-    #     currentOrientation = rover.getOrientation()
-    #     self.assertEqual(currentOrientation, Orientation("Ouest"))
-
-    def test_avance(self):
         # Arrange
-        rover = Rover()
 
         # Action 
-        if rover.valeur_orientation == "Nord":
-            position_avant_avance = rover.valeur_Y
-            position_avant_avance = position_avant_avance + 1
-            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
-            rover.avance()
-            position_apres_avance = rover.valeur_Y
-            # Assert
-            self.assertEqual(position_avant_avance, position_apres_avance)
-            
-        # Action 
-        if rover.valeur_orientation == "Sud":
-            
-            position_avant_avance = rover.valeur_Y
-            position_avant_avance = position_avant_avance - 1
-            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
-            rover.avance()
-            position_apres_avance = rover.valeur_Y
-            # Assert
-            self.assertEqual(position_avant_avance, position_apres_avance)
+        point = Point(value=1)
+
+        # Assert
+        self.assertEqual(point._value, 1)
+
+    def test_point_with_negative_value(self):
+
+        # Arrange
 
         # Action 
-        if rover.valeur_orientation == "Est":
-            position_avant_avance = rover.valeur_X
-            position_avant_avance = position_avant_avance + 1
-            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
-            rover.avance()
-            position_apres_avance = rover.valeur_X
-            # Assert
-            self.assertEqual(position_avant_avance, position_apres_avance)
+        with self.assertRaises(BadPointValueException) as ar:
+            Point(value=-1)
+
+        # Assert
+        self.assertEqual(str(ar.exception), "The Point Value Must Positive or 0")
+
+    def test_point_with_float_value(self):
+
+        # Arrange
 
         # Action 
-        if rover.valeur_orientation == "Ouest":
-            position_avant_avance = rover.valeur_X
-            position_avant_avance = position_avant_avance - 1
-            rover.traitement_depassement_limite_teste_avance(position_avant_avance)
-            rover.avance()
-            position_apres_avance = rover.valeur_X
-            # Assert
-            self.assertEqual(position_avant_avance, position_apres_avance)
+        with self.assertRaises(BadPointValueException) as ar:
+            Point(value=1.5)
 
-    def test_recule(self):
+        # Assert
+        self.assertEqual(str(ar.exception), "The Point Value Must Be Integer")
+
+class TestInitCoordonnee(unittest.TestCase):
+
+    def test_coordonnee(self):
+
         # Arrange
-        rover = Rover()
+        y = PointBuilder.point0()
+        x = PointBuilder.point1()
 
-        # Action
-        if rover.valeur_orientation == "Nord":
-            position_avant_recule = rover.valeur_Y
-            position_avant_recule = position_avant_recule - 1
-            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.recule()
-            position_apres_recule = rover.valeur_Y
-            # Assert
-            self.assertEqual(position_avant_recule, position_apres_recule)
-            
-        # Action
-        if rover.valeur_orientation == "Sud":
-            
-            position_avant_recule = rover.valeur_Y
-            position_avant_recule = position_avant_recule + 1
-            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.recule()
-            position_apres_recule = rover.valeur_Y
-            # Assert
-            self.assertEqual(position_avant_recule, position_apres_recule)
+        # Action 
+        coordonnee = Coordonnee(y=y, x=x)
 
-        # Action
-        if rover.valeur_orientation == "Est":
-            position_avant_recule = rover.valeur_X
-            position_avant_recule = position_avant_recule - 1
-            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.recule()
-            position_apres_recule = rover.valeur_X
-            # Assert
-            self.assertEqual(position_avant_recule, position_apres_recule)
+        # Assert
+        self.assertEqual(coordonnee._y, y)
+        self.assertEqual(coordonnee._x, x)
 
-        # Action
-        if rover.valeur_orientation == "Ouest":
-            position_avant_recule = rover.valeur_X
-            position_avant_recule = position_avant_recule + 1
-            rover.traitement_depassement_limite_teste_recule(position_avant_recule)
-            rover.recule()
-            position_apres_recule = rover.valeur_X
-            # Assert
-            self.assertEqual(position_avant_recule, position_apres_recule)
+class TestInitMap(unittest.TestCase):
 
+    def test_map(self):
 
-    def test_tourne_gauche(self):
         # Arrange
-        rover = Rover()
+        y = PointBuilder.point0()
+        x = PointBuilder.point1()
 
-        if rover.cardinal == "Nord":
-            avant_tourne = "Ouest"
-            rover.tourne_gauche()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+        # Action 
+        map = Map(yMax=y, xMax=x)
 
-        if rover.cardinal == "Sud":
-            avant_tourne = "Est"
-            rover.tourne_gauche()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+        # Assert
+        self.assertEqual(map._yMax, y)
+        self.assertEqual(map._xMax, x)
 
-        if rover.cardinal == "Est":
-            avant_tourne = "Nord"
-            rover.tourne_gauche()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+class TestInitPosition(unittest.TestCase):
 
-        if rover.cardinal == "Ouest":
-            avant_tourne = "Sud"
-            rover.tourne_gauche()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
-     
-    def test_tourne_droite(self):
+    def test_position(self):
+
         # Arrange
-        rover = Rover()
+        coordonnee = CoordonneeBuilder.coordonnee_0_1
 
-        # Action
-        if rover.cardinal == "Nord":
-            avant_tourne = "Est"
-            rover.tourne_droite()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+        # Action 
+        position = Position(startCoordonnee=coordonnee)
 
-        if rover.cardinal == "Sud":
-            avant_tourne = "Ouest"
-            rover.tourne_droite()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+        # Assert
+        self.assertEqual(position._coordonnee, coordonnee)
 
-        if rover.cardinal == "Est":
-            avant_tourne = "Sud"
-            rover.tourne_droite()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+class TestInitCardinal(unittest.TestCase):
 
-        if rover.cardinal == "Ouest":
-            avant_tourne = "Nord"
-            rover.tourne_droite()
-            apres_tourne = rover.cardinal
-            # Assert
-            self.assertEqual(avant_tourne, apres_tourne)
+    def test_cardinal(self):
 
-   
+        # Arrange
+
+        # Action 
+        cardinal = Cardinal(value="North")
+
+        # Assert
+        self.assertEqual(cardinal._index, 0)
+
+    def test_cardinal_with_bad_value(self):
+
+        # Arrange
+
+        # Action 
+        with self.assertRaises(BadCardinalValueException) as ar:
+            Cardinal(value="Toto")
+
+        # Assert
+        self.assertEqual(str(ar.exception), "The Cardfinal Value Must Be One of ('North', 'South', 'East', 'West')")
+
+class TestInitDirection(unittest.TestCase):
+
+    def test_direction(self):
+
+        # Arrange
+        cardinal = CardinalBuilder.north()
+
+        # Action 
+        direction = Direction(startCardinal=cardinal)
+
+        # Assert
+        self.assertEqual(direction._cardinal, cardinal)
+
+class TestInitRover(unittest.TestCase):
+
+    def test_rover(self):
+
+        # Arrange
+        coordonnee  = CoordonneeBuilder.coordonnee_0_1()
+        cardinal    = CardinalBuilder.north()
+
+        # Action 
+        rover = Rover(
+            startCardinal   = cardinal,
+            startCoordonnee = coordonnee
+        )
+
+        # Assert
+        expectedPosition    = PositionBuilder.position_0_1()
+        expectedDirection   = DirectionBuilder.north()
+        self.assertEqual(rover._position    , expectedPosition)
+        self.assertEqual(rover._direction   , expectedDirection)
+
+class TestInitDeplacement(unittest.TestCase):
+
+    def test_deplacement(self):
+
+        # Arrange
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.north_0_1()
+
+        # Action 
+        direction = Deplacement(map=map, rover=rover)
+
+        # Assert
+        self.assertEqual(direction._map     , map)
+        self.assertEqual(direction._rover   , rover)
+
+    def test_deplacement_if_rover_not_in_map(self):
+
+        # Arrange
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.north_0_12()
+
+        # Action 
+        with self.assertRaises(OutSideMapException) as ar:
+            Deplacement(map=map, rover=rover)
+
+        # Assert
+        self.assertEqual(str(ar.exception), "The position of the rover is not in the Map")
+
+
+class TestRoverTurnLeft(unittest.TestCase):
+
+    def test_left_if_direction_north(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_north_0_1()
+
+        # Action 
+        deplacement.turnLeft()
+
+        # Assert
+        expectedRover = RoverBuilder.west_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_left_if_direction_east(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_east_0_1()
+
+        # Action 
+        deplacement.turnLeft()
+
+        # Assert
+        expectedRover = RoverBuilder.north_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_left_if_direction_south(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_south_0_1()
+
+        # Action 
+        deplacement.turnLeft()
+
+        # Assert
+        expectedRover = RoverBuilder.east_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_left_if_direction_west(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_west_0_1()
+
+        # Action 
+        deplacement.turnLeft()
+
+        # Assert
+        expectedRover = RoverBuilder.south_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+class TestRoverTurnRight(unittest.TestCase):
+
+    def test_right_if_direction_north(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_north_0_1()
+
+        # Action 
+        deplacement.turnRight()
+
+        # Assert
+        expectedRover = RoverBuilder.east_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_right_if_direction_east(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_east_0_1()
+
+        # Action 
+        deplacement.turnRight()
+
+        # Assert
+        expectedRover = RoverBuilder.south_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_right_if_direction_south(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_south_0_1()
+
+        # Action 
+        deplacement.turnRight()
+
+        # Assert
+        expectedRover = RoverBuilder.west_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
+
+    def test_right_if_direction_west(self):
+
+        # Arrange
+        deplacement = DeplacementBuilder.map_10_10_rover_west_0_1()
+
+        # Action 
+        deplacement.turnRight()
+
+        # Assert
+        expectedRover = RoverBuilder.north_0_1()
+        self.assertEqual(deplacement._rover, expectedRover)
 
 if __name__ == '__main__':
     unittest.main()
