@@ -2,16 +2,16 @@ un niveau d'indentation par méthode 				        - ok
 
 ne pas utiliser ELSE 						                - ok
 
-Enveloppe toutes les primitives et chaînes de caractères	- ?
+Enveloppe toutes les primitives et chaînes de caractères	- ok
 
-collection de première classe					            - ?
+collection de première classe					            - ok
 
-un point par ligne						                    - ?
+un point par ligne						                    - ok
 
 ne pas abréger							                    - ok
 
-garder toutes les entités petites				            - ?
+garder toutes les entités petites				            - ok
 
-Pas de classes avec plus de deux variables d'instance 		- à faire
+Pas de classes avec plus de deux variables d'instance 		- ok
 
 Pas de getters/setters/properties				            - ok
