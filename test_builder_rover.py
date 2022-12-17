@@ -8,6 +8,9 @@ class PointBuilder:
     def point1() -> Point:
         return Point(value=1)
 
+    def point2() -> Point:
+        return Point(value=2)
+
     def point10() -> Point:
         return Point(value=10)
 
@@ -16,14 +19,39 @@ class PointBuilder:
 
 class CoordonneeBuilder:
 
+    def coordonnee_0_0() -> Coordonnee:
+        y = PointBuilder.point0()
+        x = PointBuilder.point0()
+        return Coordonnee(y=y, x=x)
+
     def coordonnee_0_1() -> Coordonnee:
         y = PointBuilder.point0()
         x = PointBuilder.point1()
         return Coordonnee(y=y, x=x)
 
+    def coordonnee_0_2() -> Coordonnee:
+        y = PointBuilder.point0()
+        x = PointBuilder.point2()
+        return Coordonnee(y=y, x=x)
+
+    def coordonnee_0_10() -> Coordonnee:
+        y = PointBuilder.point0()
+        x = PointBuilder.point10()
+        return Coordonnee(y=y, x=x)
+
     def coordonnee_0_12() -> Coordonnee:
         y = PointBuilder.point0()
         x = PointBuilder.point12()
+        return Coordonnee(y=y, x=x)
+
+    def coordonnee_1_1() -> Coordonnee:
+        y = PointBuilder.point1()
+        x = PointBuilder.point1()
+        return Coordonnee(y=y, x=x)
+
+    def coordonnee_10_1() -> Coordonnee:
+        y = PointBuilder.point10()
+        x = PointBuilder.point1()
         return Coordonnee(y=y, x=x)
 
 class PositionBuilder:
@@ -71,13 +99,38 @@ class RoverBuilder:
         cardinal    = CardinalBuilder.north()
         return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
 
+    def north_1_1() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_1_1()
+        cardinal    = CardinalBuilder.north()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def north_10_1() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_10_1()
+        cardinal    = CardinalBuilder.north()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
     def north_0_12() -> Rover:
         coordonne   = CoordonneeBuilder.coordonnee_0_12()
         cardinal    = CardinalBuilder.north()
         return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
 
+    def east_0_0() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_0_0()
+        cardinal    = CardinalBuilder.east()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
     def east_0_1() -> Rover:
         coordonne   = CoordonneeBuilder.coordonnee_0_1()
+        cardinal    = CardinalBuilder.east()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def east_0_2() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_0_2()
+        cardinal    = CardinalBuilder.east()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def east_0_10() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_0_10()
         cardinal    = CardinalBuilder.east()
         return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
 
@@ -86,8 +139,28 @@ class RoverBuilder:
         cardinal    = CardinalBuilder.south()
         return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
 
+    def south_1_1() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_1_1()
+        cardinal    = CardinalBuilder.south()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def south_10_1() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_10_1()
+        cardinal    = CardinalBuilder.south()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
     def west_0_1() -> Rover:
         coordonne   = CoordonneeBuilder.coordonnee_0_1()
+        cardinal    = CardinalBuilder.west()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def west_0_0() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_0_0()
+        cardinal    = CardinalBuilder.west()
+        return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
+
+    def west_0_10() -> Rover:
+        coordonne   = CoordonneeBuilder.coordonnee_0_10()
         cardinal    = CardinalBuilder.west()
         return Rover(startCoordonnee=coordonne, startCardinal=cardinal)
 
@@ -105,9 +178,29 @@ class DeplacementBuilder:
         rover   = RoverBuilder.north_0_1()
         return Deplacement(map=map, rover=rover)
 
+    def map_10_10_rover_north_1_1() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.north_1_1()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_north_10_1() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.north_10_1()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_east_0_0() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.east_0_0()
+        return Deplacement(map=map, rover=rover)
+
     def map_10_10_rover_east_0_1() -> Deplacement:
         map     = MapBuilder.map_10_10()
         rover   = RoverBuilder.east_0_1()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_east_0_10() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.east_0_10()
         return Deplacement(map=map, rover=rover)
 
     def map_10_10_rover_south_0_1() -> Deplacement:
@@ -115,7 +208,27 @@ class DeplacementBuilder:
         rover   = RoverBuilder.south_0_1()
         return Deplacement(map=map, rover=rover)
 
+    def map_10_10_rover_south_1_1() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.south_1_1()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_south_10_1() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.south_10_1()
+        return Deplacement(map=map, rover=rover)
+
     def map_10_10_rover_west_0_1() -> Deplacement:
         map     = MapBuilder.map_10_10()
         rover   = RoverBuilder.west_0_1()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_west_0_0() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.west_0_0()
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_rover_west_0_10() -> Deplacement:
+        map     = MapBuilder.map_10_10()
+        rover   = RoverBuilder.west_0_10()
         return Deplacement(map=map, rover=rover)
