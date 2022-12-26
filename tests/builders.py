@@ -1,4 +1,4 @@
-from rover import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement
+from main import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement
 
 class PointBuilder:
 
