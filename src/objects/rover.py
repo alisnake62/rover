@@ -1,5 +1,5 @@
 from typing import TYPE_CHECKING
-if TYPE_CHECKING: from src.objects import Obstacle
+if TYPE_CHECKING: from src.objects import Obstacle, Rover
 
 from src.objects import Coordonnee, Map, Position, Cardinal, Direction
 
@@ -13,8 +13,8 @@ class RoverMessage:
         return otherMessage._value == self._value
 
 class RoverMessagePosition(RoverMessage):
-    def __init__(self, roverPosition:Position) -> None:
-        self._value = f"Current position : {roverPosition}"
+    def __init__(self, rover:'Rover') -> None:
+        self._value = f"Current position: {rover.positionToString()}, Current direction: {rover.directionToString()}"
 
 class RoverMessageObstacle(RoverMessage):
     def __init__(self, obstacle:'Obstacle') -> None:
@@ -34,18 +34,24 @@ class Rover:
 
     def turnLeft(self) -> RoverMessagePosition:
         self._direction.turnLeft()
-        return RoverMessagePosition(roverPosition=self._position)
+        return RoverMessagePosition(rover=self)
 
     def turnRight(self) -> RoverMessagePosition:
         self._direction.turnRight()
-        return RoverMessagePosition(roverPosition=self._position)
+        return RoverMessagePosition(rover=self)
 
     def moveUp(self, map:Map) -> RoverMessagePosition:
         obstacle = self._direction.moveUp(position=self._position, map=map)
         if obstacle: return RoverMessageObstacle(obstacle=obstacle)
-        return RoverMessagePosition(roverPosition=self._position)
+        return RoverMessagePosition(rover=self)
 
     def moveDown(self, map:Map) -> RoverMessagePosition:
         obstacle = self._direction.moveDown(position=self._position, map=map)
         if obstacle: return RoverMessageObstacle(obstacle=obstacle)
-        return RoverMessagePosition(roverPosition=self._position)
+        return RoverMessagePosition(rover=self)
+
+    def positionToString(self) -> str:
+        return f"{self._position}"
+
+    def directionToString(self) -> str:
+        return f"{self._direction}"

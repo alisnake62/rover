@@ -11,6 +11,9 @@ class Cardinal:
     def __eq__(self, otherCardinal: object) -> bool:
         return otherCardinal._index == self._index
 
+    def __str__(self) -> str:
+        return self._orderedExpectedValue[self._index]
+
     def left(self):
         self._index -= 1
         if self._index == -1: self._index = 3

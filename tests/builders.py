@@ -25,9 +25,22 @@ class ObstacleBuilder:
         return Obstacle(coordonnee=coordonnee)
 
 class RoverMessagePositionBuilder:
-    def build(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
-        position = PositionBuilder.build(yPointValue=yPointValue, xPointValue=xPointValue)
-        return RoverMessagePosition(roverPosition=position)
+
+    def buildNorth(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
+        rover = RoverBuilder.buildNorth(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessagePosition(rover=rover)
+
+    def buildEast(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
+        rover = RoverBuilder.buildEast(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessagePosition(rover=rover)
+
+    def buildSouth(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
+        rover = RoverBuilder.buildSouth(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessagePosition(rover=rover)
+
+    def buildWest(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
+        rover = RoverBuilder.buildWest(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessagePosition(rover=rover)
 
 class RoverMessageObstacleBuilder:
     def build(yPointValue:int, xPointValue:int) -> RoverMessageObstacle:

@@ -8,6 +8,9 @@ class Direction:
     def __eq__(self, otherDirection: object) -> bool:
         return otherDirection._cardinal == self._cardinal
 
+    def __str__(self) -> str:
+        return f"{self._cardinal}"
+
     def turnLeft(self) -> None:
         self._cardinal = self._cardinal.left()
 
