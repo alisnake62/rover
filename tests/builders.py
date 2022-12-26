@@ -1,4 +1,4 @@
-from src import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement, RoverMessagePosition, RoverMessageObstacle, Obstacle
+from src import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement, RoverMessagePosition, RoverMessageObstacle, Obstacle, Command
 
 class PointBuilder:
 
@@ -60,6 +60,20 @@ class CardinalBuilder:
 
     def west() -> Cardinal:
         return Cardinal(value="West")
+
+class CommandBuilder:
+
+    def up() -> Command:
+        return Command(value="Up")
+
+    def down() -> Command:
+        return Command(value="Down")
+
+    def left() -> Command:
+        return Command(value="Left")
+
+    def right() -> Command:
+        return Command(value="Right")
 
 class DirectionBuilder:
 
@@ -136,6 +150,13 @@ class MapBuilder:
         obstacles   = [obstacle]
         return Map(yMax=yMax, xMax=xMax, obstacles=obstacles)
 
+    def map_10_10_obstacle_2_2() -> Map:
+        yMax = PointBuilder.build(value=10)
+        xMax = PointBuilder.build(value=10)
+        obstacle    = ObstacleBuilder.build(yPointValue=2, xPointValue=2)
+        obstacles   = [obstacle]
+        return Map(yMax=yMax, xMax=xMax, obstacles=obstacles)
+
 class DeplacementBuilder:
 
     def map_10_10_without_obstacle_rover_north_0_1() -> Deplacement:
@@ -145,6 +166,11 @@ class DeplacementBuilder:
 
     def map_10_10_obstacle_1_1_rover_north_0_1() -> Deplacement:
         map     = MapBuilder.map_10_10_obstacle_1_1()
+        rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
+        return Deplacement(map=map, rover=rover)
+
+    def map_10_10_obstacle_2_2_rover_north_0_1() -> Deplacement:
+        map     = MapBuilder.map_10_10_obstacle_2_2()
         rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
         return Deplacement(map=map, rover=rover)
 

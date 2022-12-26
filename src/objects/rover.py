@@ -12,6 +12,9 @@ class RoverMessage:
     def __eq__(self, otherMessage: object) -> bool:
         return otherMessage._value == self._value
 
+    def isObstacleMessage(self) -> bool:
+        return False
+
 class RoverMessagePosition(RoverMessage):
     def __init__(self, rover:'Rover') -> None:
         self._value = f"Current position: {rover.positionToString()}, Current direction: {rover.directionToString()}"
@@ -19,6 +22,9 @@ class RoverMessagePosition(RoverMessage):
 class RoverMessageObstacle(RoverMessage):
     def __init__(self, obstacle:'Obstacle') -> None:
         self._value = f"Unable to move due to the obstacle : {obstacle}"
+
+    def isObstacleMessage(self) -> bool:
+        return True
 
 class Rover:
 

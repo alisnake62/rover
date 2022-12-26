@@ -25,4 +25,4 @@ class TestInitCardinal(unittest.TestCase):
             Cardinal(value="Toto")
 
         # Assert
-        self.assertEqual(str(ar.exception), "The Cardfinal Value Must Be One of ('North', 'South', 'East', 'West')")
+        self.assertEqual(str(ar.exception), "The Cardinal Value Must Be One of ('North', 'South', 'East', 'West')")

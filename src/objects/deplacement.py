@@ -1,3 +1,6 @@
+from typing import List, TYPE_CHECKING
+if TYPE_CHECKING: from src.objects import RoverMessage, Command
+
 from exception import OutSideMapException
 from src.objects import Rover, Map, RoverMessagePosition
 
@@ -20,3 +23,11 @@ class Deplacement:
 
     def moveDown(self) -> RoverMessagePosition:
         return self._rover.moveDown(map=self._map)
+
+    def executeCommandList(self, commands:List['Command']) -> 'RoverMessage':
+
+        for command in commands:
+            message = command.doDeplacement(deplacement=self)
+            if message.isObstacleMessage(): return message
+
+        return message

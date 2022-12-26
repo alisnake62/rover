@@ -9,3 +9,4 @@ from .rover                 import TestInitRover
 from .roverMessagePosition  import TestInitRoverMessagePosition
 from .roverMessageObstacle  import TestInitRoverMessageObstacle
 from .obstacle              import TestInitObstacle
+from .command               import TestInitCommand
