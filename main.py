@@ -1,7 +1,7 @@
 from src import *
 
 if __name__ == '__main__':
-    mapTest = Map(yMax=Point(value=10), xMax=Point(value=10))
+    mapTest = Map(yMax=Point(value=10), xMax=Point(value=10), obstacles=[])
     roverTest = Rover(
         startCardinal   = Cardinal(value="North"),
         startCoordonnee = Coordonnee(y=Point(value=0), x=Point(value=0))

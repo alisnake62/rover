@@ -1,5 +1,5 @@
 from typing import List, TYPE_CHECKING
-if TYPE_CHECKING: from src.objects import Obstacle
+if TYPE_CHECKING: from src.objects import Obstacle, Coordonnee
 
 from src.objects import Point
 
@@ -23,6 +23,10 @@ class Map:
     def isGoodXPoint(self, point:Point) -> bool:
         if point > self._xMax: return False
         return True
+
+    def isObstacle(self, coordonnee:'Coordonnee') -> 'Obstacle':
+        for obstacle in self._obstacles:
+            if obstacle.here(coordonnee): return obstacle
 
     def transformYPointIfOutOfMapLimit(self, point: Point) -> Point:
         if point.isNegative(): return self._yMax

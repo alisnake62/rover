@@ -1,3 +1,6 @@
+from typing import TYPE_CHECKING
+if TYPE_CHECKING: from src.objects import Obstacle
+
 from src.objects import Coordonnee, Map, Position, Cardinal, Direction
 
 class RoverMessage:
@@ -12,6 +15,10 @@ class RoverMessage:
 class RoverMessagePosition(RoverMessage):
     def __init__(self, roverPosition:Position) -> None:
         self._value = f"Current position : {roverPosition}"
+
+class RoverMessageObstacle(RoverMessage):
+    def __init__(self, obstacle:'Obstacle') -> None:
+        self._value = f"Unable to move due to the obstacle : {obstacle}"
 
 class Rover:
 
@@ -34,9 +41,11 @@ class Rover:
         return RoverMessagePosition(roverPosition=self._position)
 
     def moveUp(self, map:Map) -> RoverMessagePosition:
-        self._direction.moveUp(position=self._position, map=map)
+        obstacle = self._direction.moveUp(position=self._position, map=map)
+        if obstacle: return RoverMessageObstacle(obstacle=obstacle)
         return RoverMessagePosition(roverPosition=self._position)
 
-    def moveDown(self, map:Map) -> None:
-        self._direction.moveDown(position=self._position, map=map)
+    def moveDown(self, map:Map) -> RoverMessagePosition:
+        obstacle = self._direction.moveDown(position=self._position, map=map)
+        if obstacle: return RoverMessageObstacle(obstacle=obstacle)
         return RoverMessagePosition(roverPosition=self._position)
