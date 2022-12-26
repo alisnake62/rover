@@ -25,11 +25,13 @@ class Rover:
     def isInMap(self, map:Map) -> bool:
         return self._position.isInMap(map=map)
 
-    def turnLeft(self) -> None:
+    def turnLeft(self) -> RoverMessagePosition:
         self._direction.turnLeft()
+        return RoverMessagePosition(roverPosition=self._position)
 
-    def turnRight(self) -> None:
+    def turnRight(self) -> RoverMessagePosition:
         self._direction.turnRight()
+        return RoverMessagePosition(roverPosition=self._position)
 
     def moveUp(self, map:Map) -> RoverMessagePosition:
         self._direction.moveUp(position=self._position, map=map)
@@ -37,3 +39,4 @@ class Rover:
 
     def moveDown(self, map:Map) -> None:
         self._direction.moveDown(position=self._position, map=map)
+        return RoverMessagePosition(roverPosition=self._position)

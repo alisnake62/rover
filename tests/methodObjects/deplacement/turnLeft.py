@@ -1,6 +1,6 @@
 import unittest
 
-from tests.builders import RoverBuilder, DeplacementBuilder
+from tests.builders import RoverBuilder, DeplacementBuilder, RoverMessagePositionBuilder
 
 class TestDeplacementTurnLeft(unittest.TestCase):
 
@@ -10,11 +10,13 @@ class TestDeplacementTurnLeft(unittest.TestCase):
         deplacement = DeplacementBuilder.map_10_10_rover_north_0_1()
 
         # Action 
-        deplacement.turnLeft()
+        message = deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
-        self.assertEqual(deplacement._rover, expectedRover)
+        expectedRover   = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
+        expectedMessage = RoverMessagePositionBuilder.build(yPointValue=0, xPointValue=1)
+        self.assertEqual(deplacement._rover , expectedRover)
+        self.assertEqual(message            , expectedMessage)
 
     def test_left_if_direction_east(self):
 
@@ -22,11 +24,13 @@ class TestDeplacementTurnLeft(unittest.TestCase):
         deplacement = DeplacementBuilder.map_10_10_rover_east_0_1()
 
         # Action 
-        deplacement.turnLeft()
+        message = deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
-        self.assertEqual(deplacement._rover, expectedRover)
+        expectedRover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
+        expectedMessage = RoverMessagePositionBuilder.build(yPointValue=0, xPointValue=1)
+        self.assertEqual(deplacement._rover , expectedRover)
+        self.assertEqual(message            , expectedMessage)
 
     def test_left_if_direction_south(self):
 
@@ -34,11 +38,13 @@ class TestDeplacementTurnLeft(unittest.TestCase):
         deplacement = DeplacementBuilder.map_10_10_rover_south_0_1()
 
         # Action 
-        deplacement.turnLeft()
+        message = deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=1)
-        self.assertEqual(deplacement._rover, expectedRover)
+        expectedRover   = RoverBuilder.buildEast(yPointValue=0, xPointValue=1)
+        expectedMessage = RoverMessagePositionBuilder.build(yPointValue=0, xPointValue=1)
+        self.assertEqual(deplacement._rover , expectedRover)
+        self.assertEqual(message            , expectedMessage)
 
     def test_left_if_direction_west(self):
 
@@ -46,8 +52,10 @@ class TestDeplacementTurnLeft(unittest.TestCase):
         deplacement = DeplacementBuilder.map_10_10_rover_west_0_1()
 
         # Action 
-        deplacement.turnLeft()
+        message = deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
-        self.assertEqual(deplacement._rover, expectedRover)
+        expectedRover   = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
+        expectedMessage = RoverMessagePositionBuilder.build(yPointValue=0, xPointValue=1)
+        self.assertEqual(deplacement._rover , expectedRover)
+        self.assertEqual(message            , expectedMessage)
