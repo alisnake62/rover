@@ -1,11 +1,21 @@
 from src import *
 
 if __name__ == '__main__':
-    map = Map(yMax=Point(value=10), xMax=Point(value=10))
-    rover = Rover(
+    mapTest = Map(yMax=Point(value=10), xMax=Point(value=10))
+    roverTest = Rover(
         startCardinal   = Cardinal(value="North"),
         startCoordonnee = Coordonnee(y=Point(value=0), x=Point(value=0))
         )
-    deplacement = Deplacement(map=map, rover=rover)
+    deplacementTest = Deplacement(map=mapTest, rover=roverTest)
 
-    print(map._xMax._value)
+    # print(map._xMax._value)
+
+    roverPosition = deplacementTest._rover._position
+
+    message = RoverMessagePosition(roverPosition=roverPosition)
+    print(message)
+
+    deplacementTest.moveUp()
+    message = RoverMessagePosition(roverPosition=roverPosition)
+    print(message)
+    

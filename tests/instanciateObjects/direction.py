@@ -1,6 +1,6 @@
 import unittest
 
-from main import Direction
+from src import Direction
 from tests.builders import CardinalBuilder
 
 class TestInitDirection(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from main import Map
+from src import Map
 from tests.builders import PointBuilder
 
 class TestInitMap(unittest.TestCase):

@@ -1,4 +1,4 @@
-from main import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement
+from main import Point, Coordonnee, Cardinal, Position, Direction, Rover, Map, Deplacement, RoverMessagePosition
 
 class PointBuilder:
 
@@ -17,6 +17,11 @@ class PositionBuilder:
     def build(yPointValue:int, xPointValue:int) -> Position:
         coordonnee = CoordonneeBuilder.build(yPointValue=yPointValue, xPointValue=xPointValue)
         return Position(startCoordonnee=coordonnee)
+
+class RoverMessagePositionBuilder:
+    def build(yPointValue:int, xPointValue:int) -> RoverMessagePosition:
+        position = PositionBuilder.build(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessagePosition(roverPosition=position)
 
 class CardinalBuilder:
 

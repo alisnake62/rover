@@ -1,5 +1,5 @@
 from exception import OutSideMapException
-from src.objects import Rover, Map
+from src.objects import Rover, Map, RoverMessagePosition
 
 class Deplacement:
 
@@ -15,8 +15,8 @@ class Deplacement:
     def turnRight(self) -> None:
         self._rover.turnRight()
 
-    def moveUp(self) -> None:
-        self._rover.moveUp(map=self._map)
+    def moveUp(self) -> RoverMessagePosition:
+        return self._rover.moveUp(map=self._map)
 
     def moveDown(self) -> None:
         self._rover.moveDown(map=self._map)

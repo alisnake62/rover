@@ -1,6 +1,6 @@
 import unittest
 
-from main import Coordonnee
+from src import Coordonnee
 from tests.builders import PointBuilder
 
 class TestInitCoordonnee(unittest.TestCase):

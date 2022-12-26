@@ -14,6 +14,9 @@ class Point:
     def __gt__(self, otherPoint:object) -> bool:
         return self._value > otherPoint._value
 
+    def __str__(self) -> str:
+        return str(self._value)
+
     def add1(self):
         self._value += 1
         return self

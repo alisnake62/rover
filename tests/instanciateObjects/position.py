@@ -1,6 +1,6 @@
 import unittest
 
-from main import Position
+from src import Position
 from tests.builders import CoordonneeBuilder
 
 class TestInitPosition(unittest.TestCase):

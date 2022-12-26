@@ -1,5 +1,18 @@
 from src.objects import Coordonnee, Map, Position, Cardinal, Direction
 
+class RoverMessage:
+    _value = ""
+
+    def __str__(self) -> str:
+        return self._value
+
+    def __eq__(self, otherMessage: object) -> bool:
+        return otherMessage._value == self._value
+
+class RoverMessagePosition(RoverMessage):
+    def __init__(self, roverPosition:Position) -> None:
+        self._value = f"Current position : {roverPosition}"
+
 class Rover:
 
     def __init__(self, startCoordonnee: Coordonnee, startCardinal:Cardinal) -> None:
@@ -18,8 +31,9 @@ class Rover:
     def turnRight(self) -> None:
         self._direction.turnRight()
 
-    def moveUp(self, map:Map) -> None:
+    def moveUp(self, map:Map) -> RoverMessagePosition:
         self._direction.moveUp(position=self._position, map=map)
+        return RoverMessagePosition(roverPosition=self._position)
 
     def moveDown(self, map:Map) -> None:
         self._direction.moveDown(position=self._position, map=map)

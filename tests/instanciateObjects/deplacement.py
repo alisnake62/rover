@@ -1,6 +1,6 @@
 import unittest
 
-from main import Deplacement
+from src import Deplacement
 from tests.builders import MapBuilder, RoverBuilder
 
 from exception import OutSideMapException

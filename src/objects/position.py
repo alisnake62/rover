@@ -8,6 +8,9 @@ class Position:
     def __eq__(self, otherposition: object) -> bool:
         return otherposition._coordonnee == self._coordonnee
 
+    def __str__(self) -> str:
+        return f"{self._coordonnee}"
+
     def isInMap(self, map:Map) -> bool:
         return self._coordonnee.isInMap(map=map)
 

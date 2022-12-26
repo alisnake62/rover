@@ -1,6 +1,6 @@
 import unittest
 
-from main import Rover
+from src import Rover
 from tests.builders import CoordonneeBuilder, CardinalBuilder, DirectionBuilder, PositionBuilder
 
 class TestInitRover(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from main import Point
+from src import Point
 
 from exception import BadPointValueException
 

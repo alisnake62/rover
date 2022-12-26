@@ -1,6 +1,6 @@
 import unittest
 
-from main import Cardinal
+from src import Cardinal
 
 from exception import BadCardinalValueException
 
