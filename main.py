@@ -24,3 +24,16 @@ if __name__ == '__main__':
     print(deplacementTest.turnRight())
     print(deplacementTest.moveDown())
     print(deplacementTest.moveDown())
+
+    print("Command List")
+
+    commandList = [
+        Command("Up"),
+        Command("Left"),
+        Command("Left"),
+        Command("Up"),
+        Command("Up"),
+        Command("Up")
+    ]
+
+    print(deplacementTest.executeCommandList(commands=commandList))
