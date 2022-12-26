@@ -11,26 +11,16 @@ if __name__ == '__main__':
         )
     deplacementTest = Deplacement(map=mapTest, rover=roverTest)
 
-    # print(map._xMax._value)
-
-    roverPosition = deplacementTest._rover._position
-
-    message = RoverMessagePosition(roverPosition=roverPosition)
-    print(message)
-
-    deplacementTest.moveUp()
-    message = RoverMessagePosition(roverPosition=roverPosition)
-    print(message)
-
-    deplacementTest.turnLeft()
-    message = RoverMessagePosition(roverPosition=roverPosition)
-    print(message)
-
-    deplacementTest.moveUp()
-    message = RoverMessagePosition(roverPosition=roverPosition)
-    print(message)
-
-    deplacementTest.moveUp()
-    message = RoverMessagePosition(roverPosition=roverPosition)
-    print(message)
-    
+    print(deplacementTest.moveUp())
+    print(deplacementTest.turnRight())
+    print(deplacementTest.moveUp())
+    print(deplacementTest.moveUp())
+    print(deplacementTest.turnLeft())
+    print(deplacementTest.moveUp())
+    print(deplacementTest.turnRight())
+    print(deplacementTest.moveUp())
+    print(deplacementTest.moveDown())
+    print(deplacementTest.turnRight())
+    print(deplacementTest.turnRight())
+    print(deplacementTest.moveDown())
+    print(deplacementTest.moveDown())
