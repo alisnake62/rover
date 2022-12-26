@@ -53,8 +53,8 @@ class TestInitCoordonnee(unittest.TestCase):
     def test_coordonnee(self):
 
         # Arrange
-        y = PointBuilder.point0()
-        x = PointBuilder.point1()
+        y = PointBuilder.build(value=0)
+        x = PointBuilder.build(value=1)
 
         # Action 
         coordonnee = Coordonnee(y=y, x=x)
@@ -68,8 +68,8 @@ class TestInitMap(unittest.TestCase):
     def test_map(self):
 
         # Arrange
-        y = PointBuilder.point0()
-        x = PointBuilder.point1()
+        y = PointBuilder.build(value=0)
+        x = PointBuilder.build(value=1)
 
         # Action 
         map = Map(yMax=y, xMax=x)
@@ -83,7 +83,7 @@ class TestInitPosition(unittest.TestCase):
     def test_position(self):
 
         # Arrange
-        coordonnee = CoordonneeBuilder.coordonnee_0_1
+        coordonnee = CoordonneeBuilder.build(yPointValue=0, xPointValue=1)
 
         # Action 
         position = Position(startCoordonnee=coordonnee)
@@ -132,7 +132,7 @@ class TestInitRover(unittest.TestCase):
     def test_rover(self):
 
         # Arrange
-        coordonnee  = CoordonneeBuilder.coordonnee_0_1()
+        coordonnee  = CoordonneeBuilder.build(yPointValue=0, xPointValue=1)
         cardinal    = CardinalBuilder.north()
 
         # Action 
@@ -142,7 +142,7 @@ class TestInitRover(unittest.TestCase):
         )
 
         # Assert
-        expectedPosition    = PositionBuilder.position_0_1()
+        expectedPosition    = PositionBuilder.build(yPointValue=0, xPointValue=1)
         expectedDirection   = DirectionBuilder.north()
         self.assertEqual(rover._position    , expectedPosition)
         self.assertEqual(rover._direction   , expectedDirection)
@@ -153,7 +153,7 @@ class TestInitDeplacement(unittest.TestCase):
 
         # Arrange
         map     = MapBuilder.map_10_10()
-        rover   = RoverBuilder.north_0_1()
+        rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
 
         # Action 
         direction = Deplacement(map=map, rover=rover)
@@ -166,7 +166,7 @@ class TestInitDeplacement(unittest.TestCase):
 
         # Arrange
         map     = MapBuilder.map_10_10()
-        rover   = RoverBuilder.north_0_12()
+        rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=12)
 
         # Action 
         with self.assertRaises(OutSideMapException) as ar:
@@ -187,7 +187,7 @@ class TestRoverTurnLeft(unittest.TestCase):
         deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_1()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_left_if_direction_east(self):
@@ -199,7 +199,7 @@ class TestRoverTurnLeft(unittest.TestCase):
         deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.north_0_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_left_if_direction_south(self):
@@ -211,7 +211,7 @@ class TestRoverTurnLeft(unittest.TestCase):
         deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_1()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_left_if_direction_west(self):
@@ -223,7 +223,7 @@ class TestRoverTurnLeft(unittest.TestCase):
         deplacement.turnLeft()
 
         # Assert
-        expectedRover = RoverBuilder.south_0_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
 class TestRoverTurnRight(unittest.TestCase):
@@ -237,7 +237,7 @@ class TestRoverTurnRight(unittest.TestCase):
         deplacement.turnRight()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_1()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_right_if_direction_east(self):
@@ -249,7 +249,7 @@ class TestRoverTurnRight(unittest.TestCase):
         deplacement.turnRight()
 
         # Assert
-        expectedRover = RoverBuilder.south_0_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_right_if_direction_south(self):
@@ -261,7 +261,7 @@ class TestRoverTurnRight(unittest.TestCase):
         deplacement.turnRight()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_1()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_right_if_direction_west(self):
@@ -273,7 +273,7 @@ class TestRoverTurnRight(unittest.TestCase):
         deplacement.turnRight()
 
         # Assert
-        expectedRover = RoverBuilder.north_0_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
 class TestRoverMoveUp(unittest.TestCase):
@@ -287,7 +287,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.north_1_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=1, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_north_and_out_of_limit(self):
@@ -299,7 +299,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.north_0_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_east(self):
@@ -311,7 +311,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_2()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=2)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_east_and_out_of_limit(self):
@@ -323,7 +323,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_0()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=0)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_south(self):
@@ -335,7 +335,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.south_0_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_south_and_out_of_limit(self):
@@ -347,7 +347,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.south_10_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=10, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_west(self):
@@ -359,7 +359,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_0()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=0)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_west_and_out_of_limit(self):
@@ -371,7 +371,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveUp()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_10()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=10)
         self.assertEqual(deplacement._rover, expectedRover)
 
 class TestRoverMoveUp(unittest.TestCase):
@@ -385,7 +385,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.north_0_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_north_and_out_of_limit(self):
@@ -397,7 +397,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.north_10_1()
+        expectedRover = RoverBuilder.buildNorth(yPointValue=10, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_down_if_direction_east(self):
@@ -409,7 +409,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_0()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=0)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_east_and_out_of_limit(self):
@@ -421,7 +421,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.east_0_10()
+        expectedRover = RoverBuilder.buildEast(yPointValue=0, xPointValue=10)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_down_if_direction_south(self):
@@ -433,7 +433,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.south_1_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=1, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_south_and_out_of_limit(self):
@@ -445,7 +445,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.south_0_1()
+        expectedRover = RoverBuilder.buildSouth(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_down_if_direction_west(self):
@@ -457,7 +457,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_1()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover, expectedRover)
 
     def test_move_up_if_direction_west_and_out_of_limit(self):
@@ -469,7 +469,7 @@ class TestRoverMoveUp(unittest.TestCase):
         deplacement.moveDown()
 
         # Assert
-        expectedRover = RoverBuilder.west_0_0()
+        expectedRover = RoverBuilder.buildWest(yPointValue=0, xPointValue=0)
         self.assertEqual(deplacement._rover, expectedRover)
 
 if __name__ == '__main__':
