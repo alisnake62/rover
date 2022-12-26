@@ -7,7 +7,7 @@ class TestDeplacementTurnLeft(unittest.TestCase):
     def test_left_if_direction_north(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_north_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_north_0_1()
 
         # Action 
         message = deplacement.turnLeft()
@@ -21,7 +21,7 @@ class TestDeplacementTurnLeft(unittest.TestCase):
     def test_left_if_direction_east(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_east_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_east_0_1()
 
         # Action 
         message = deplacement.turnLeft()
@@ -35,7 +35,7 @@ class TestDeplacementTurnLeft(unittest.TestCase):
     def test_left_if_direction_south(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_south_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_south_0_1()
 
         # Action 
         message = deplacement.turnLeft()
@@ -49,7 +49,7 @@ class TestDeplacementTurnLeft(unittest.TestCase):
     def test_left_if_direction_west(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_west_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_west_0_1()
 
         # Action 
         message = deplacement.turnLeft()

@@ -7,3 +7,4 @@ from .point                 import TestInitPoint
 from .position              import TestInitPosition
 from .rover                 import TestInitRover
 from .roverMessagePosition  import TestInitRoverMessagePosition
+from .obstacle              import TestInitObstacle

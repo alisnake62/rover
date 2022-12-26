@@ -1,10 +1,20 @@
+from typing import List, TYPE_CHECKING
+if TYPE_CHECKING: from src.objects import Obstacle
+
 from src.objects import Point
+
+from exception import OutSideMapException
 
 class Map:
 
-    def __init__(self, yMax:Point, xMax:Point) -> None:
-        self._yMax = yMax
-        self._xMax = xMax
+    def __init__(self, yMax:Point, xMax:Point, obstacles:List['Obstacle']) -> None:
+
+        self._yMax      = yMax
+        self._xMax      = xMax
+
+        for obstacle in obstacles:
+            if not obstacle.isInMap(self): raise OutSideMapException()
+        self._obstacles = obstacles
 
     def isGoodYPoint(self, point:Point) -> bool:
         if point > self._yMax: return False

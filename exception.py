@@ -13,4 +13,4 @@ class BadCardinalValueException(RoverAppException):
     _message = "The Cardfinal Value Must Be One of ('North', 'South', 'East', 'West')"
 
 class OutSideMapException(RoverAppException):
-    _message = "The position of the rover is not in the Map"
+    _message = "The position of the object is not in the Map"

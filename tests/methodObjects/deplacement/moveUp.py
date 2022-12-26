@@ -7,7 +7,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_north(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_north_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_north_0_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -21,7 +21,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_north_and_out_of_limit(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_north_10_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_north_10_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -35,7 +35,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_east(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_east_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_east_0_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -49,7 +49,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_east_and_out_of_limit(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_east_0_10()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_east_0_10()
 
         # Action 
         message = deplacement.moveUp()
@@ -63,7 +63,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_south(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_south_1_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_south_1_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -77,7 +77,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_south_and_out_of_limit(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_south_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_south_0_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -91,7 +91,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_west(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_west_0_1()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_west_0_1()
 
         # Action 
         message = deplacement.moveUp()
@@ -105,7 +105,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
     def test_move_up_if_direction_west_and_out_of_limit(self):
 
         # Arrange
-        deplacement = DeplacementBuilder.map_10_10_rover_west_0_0()
+        deplacement = DeplacementBuilder.map_10_10_without_obstacle_rover_west_0_0()
 
         # Action 
         message = deplacement.moveUp()

@@ -18,4 +18,16 @@ if __name__ == '__main__':
     deplacementTest.moveUp()
     message = RoverMessagePosition(roverPosition=roverPosition)
     print(message)
+
+    deplacementTest.turnLeft()
+    message = RoverMessagePosition(roverPosition=roverPosition)
+    print(message)
+
+    deplacementTest.moveUp()
+    message = RoverMessagePosition(roverPosition=roverPosition)
+    print(message)
+
+    deplacementTest.moveUp()
+    message = RoverMessagePosition(roverPosition=roverPosition)
+    print(message)
     

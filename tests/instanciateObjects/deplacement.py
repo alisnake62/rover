@@ -10,7 +10,7 @@ class TestInitDeplacement(unittest.TestCase):
     def test_init_deplacement(self):
 
         # Arrange
-        map     = MapBuilder.map_10_10()
+        map     = MapBuilder.map_10_10_without_obstacle()
         rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
 
         # Action 
@@ -23,7 +23,7 @@ class TestInitDeplacement(unittest.TestCase):
     def test_init_deplacement_if_rover_not_in_map(self):
 
         # Arrange
-        map     = MapBuilder.map_10_10()
+        map     = MapBuilder.map_10_10_without_obstacle()
         rover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=12)
 
         # Action 
@@ -31,4 +31,4 @@ class TestInitDeplacement(unittest.TestCase):
             Deplacement(map=map, rover=rover)
 
         # Assert
-        self.assertEqual(str(ar.exception), "The position of the rover is not in the Map")
+        self.assertEqual(str(ar.exception), "The position of the object is not in the Map")
