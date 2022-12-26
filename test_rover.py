@@ -16,7 +16,7 @@ from exception import BadPointValueException, BadCardinalValueException, OutSide
 
 class TestInitPoint(unittest.TestCase):
 
-    def test_point(self):
+    def test_init_point(self):
 
         # Arrange
 
@@ -26,7 +26,7 @@ class TestInitPoint(unittest.TestCase):
         # Assert
         self.assertEqual(point._value, 1)
 
-    def test_point_with_negative_value(self):
+    def test_init_point_with_negative_value(self):
 
         # Arrange
 
@@ -37,7 +37,7 @@ class TestInitPoint(unittest.TestCase):
         # Assert
         self.assertEqual(str(ar.exception), "The Point Value Must Positive or 0")
 
-    def test_point_with_float_value(self):
+    def test_init_point_with_float_value(self):
 
         # Arrange
 
@@ -50,7 +50,7 @@ class TestInitPoint(unittest.TestCase):
 
 class TestInitCoordonnee(unittest.TestCase):
 
-    def test_coordonnee(self):
+    def test_init_coordonnee(self):
 
         # Arrange
         y = PointBuilder.build(value=0)
@@ -65,7 +65,7 @@ class TestInitCoordonnee(unittest.TestCase):
 
 class TestInitMap(unittest.TestCase):
 
-    def test_map(self):
+    def test_init_map(self):
 
         # Arrange
         y = PointBuilder.build(value=0)
@@ -80,7 +80,7 @@ class TestInitMap(unittest.TestCase):
 
 class TestInitPosition(unittest.TestCase):
 
-    def test_position(self):
+    def test_init_position(self):
 
         # Arrange
         coordonnee = CoordonneeBuilder.build(yPointValue=0, xPointValue=1)
@@ -93,7 +93,7 @@ class TestInitPosition(unittest.TestCase):
 
 class TestInitCardinal(unittest.TestCase):
 
-    def test_cardinal(self):
+    def test_init_cardinal(self):
 
         # Arrange
 
@@ -103,7 +103,7 @@ class TestInitCardinal(unittest.TestCase):
         # Assert
         self.assertEqual(cardinal._index, 0)
 
-    def test_cardinal_with_bad_value(self):
+    def test_init_cardinal_with_bad_value(self):
 
         # Arrange
 
@@ -116,7 +116,7 @@ class TestInitCardinal(unittest.TestCase):
 
 class TestInitDirection(unittest.TestCase):
 
-    def test_direction(self):
+    def test_init_direction(self):
 
         # Arrange
         cardinal = CardinalBuilder.north()
@@ -129,7 +129,7 @@ class TestInitDirection(unittest.TestCase):
 
 class TestInitRover(unittest.TestCase):
 
-    def test_rover(self):
+    def test_init_rover(self):
 
         # Arrange
         coordonnee  = CoordonneeBuilder.build(yPointValue=0, xPointValue=1)
@@ -149,7 +149,7 @@ class TestInitRover(unittest.TestCase):
 
 class TestInitDeplacement(unittest.TestCase):
 
-    def test_deplacement(self):
+    def test_init_deplacement(self):
 
         # Arrange
         map     = MapBuilder.map_10_10()
@@ -162,7 +162,7 @@ class TestInitDeplacement(unittest.TestCase):
         self.assertEqual(direction._map     , map)
         self.assertEqual(direction._rover   , rover)
 
-    def test_deplacement_if_rover_not_in_map(self):
+    def test_init_deplacement_if_rover_not_in_map(self):
 
         # Arrange
         map     = MapBuilder.map_10_10()
