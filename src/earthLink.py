@@ -26,6 +26,7 @@ class EarthLink:
         self._socket.close()
 
     def waitClient(self):
+        print("attente de la console sur terre")
         self._client, adresse_client = self._socket.accept()
         print(f"connexion client : '{adresse_client}'")
 
