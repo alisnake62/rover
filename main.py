@@ -1,39 +1,24 @@
 from src import *
+from src.earthLink import EarthLink
 
 if __name__ == '__main__':
-    obstacleTest = Obstacle(coordonnee=Coordonnee(y=Point(value=2), x=Point(value=2)))
-    obstacleTest2 = Obstacle(coordonnee=Coordonnee(y=Point(value=1), x=Point(value=3)))
 
-    mapTest = Map(yMax=Point(value=10), xMax=Point(value=10), obstacles=[obstacleTest, obstacleTest2])
+    # initilisation de la map avec les obstacles ainsi que du Rover
+    obstacle    = Obstacle(coordonnee=Coordonnee(y=Point(value=2), x=Point(value=2)))
+    obstacle2   = Obstacle(coordonnee=Coordonnee(y=Point(value=1), x=Point(value=3)))
+    map = Map(yMax=Point(value=10), xMax=Point(value=10), obstacles=[obstacle, obstacle2])
     roverTest = Rover(
         startCardinal   = Cardinal(value="North"),
         startCoordonnee = Coordonnee(y=Point(value=0), x=Point(value=0))
         )
-    deplacementTest = Deplacement(map=mapTest, rover=roverTest)
+    deplacementRover = Deplacement(map=map, rover=roverTest)
 
-    print(deplacementTest.moveUp())
-    print(deplacementTest.turnRight())
-    print(deplacementTest.moveUp())
-    print(deplacementTest.moveUp())
-    print(deplacementTest.turnLeft())
-    print(deplacementTest.moveUp())
-    print(deplacementTest.turnRight())
-    print(deplacementTest.moveUp())
-    print(deplacementTest.moveDown())
-    print(deplacementTest.turnRight())
-    print(deplacementTest.turnRight())
-    print(deplacementTest.moveDown())
-    print(deplacementTest.moveDown())
+    # initialisation de la connextion avec la console sur terre (Module EarthLink)
+    with EarthLink(deplacement=deplacementRover) as earthLink:
 
-    print("Command List")
+        # attente de connexion de la console
+        earthLink.waitClient()
 
-    commandList = [
-        Command("Up"),
-        Command("Left"),
-        Command("Left"),
-        Command("Up"),
-        Command("Up"),
-        Command("Up")
-    ]
-
-    print(deplacementTest.executeCommandList(commands=commandList))
+        # instructions provenant de la console
+        while True:
+            earthLink.listenInstructions()

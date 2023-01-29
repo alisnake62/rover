@@ -43,6 +43,6 @@ class TestExecuteCommandList(unittest.TestCase):
 
         # Assert
         expectedRover   = RoverBuilder.buildEast(yPointValue=2, xPointValue=1)
-        expectedMessage = RoverMessageObstacleBuilder.build(yPointValue=2, xPointValue=2)
+        expectedMessage = RoverMessageObstacleBuilder.build(rover = expectedRover, yPointValue=2, xPointValue=2)
         self.assertEqual(deplacement._rover , expectedRover)
         self.assertEqual(message            , expectedMessage)

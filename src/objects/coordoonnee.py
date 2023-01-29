@@ -10,7 +10,7 @@ class Coordonnee:
         return otherCoordonnee._y == self._y and otherCoordonnee._x == self._x
 
     def __str__(self) -> str:
-        return f"[{self._y};{self._x}] (y;x)"
+        return f"{self._y};{self._x}"
 
     def isInMap(self, map: Map) -> bool:
         return map.isGoodYPoint(point=self._y) and map.isGoodXPoint(point=self._x)

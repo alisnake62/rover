@@ -17,11 +17,11 @@ class RoverMessage:
 
 class RoverMessagePosition(RoverMessage):
     def __init__(self, rover:'Rover') -> None:
-        self._value = f"Current position: {rover.positionToString()}, Current direction: {rover.directionToString()}"
+        self._value = f"{rover.positionToString()}_{rover.directionToString()}"
 
 class RoverMessageObstacle(RoverMessage):
-    def __init__(self, obstacle:'Obstacle') -> None:
-        self._value = f"Unable to move due to the obstacle : {obstacle}"
+    def __init__(self, rover:'Rover', obstacle:'Obstacle') -> None:
+        self._value = f"{rover.positionToString()}_{rover.directionToString()}_O_{obstacle}"
 
     def isObstacleMessage(self) -> bool:
         return True
@@ -48,12 +48,14 @@ class Rover:
 
     def moveUp(self, map:Map) -> RoverMessagePosition:
         obstacle = self._direction.moveUp(position=self._position, map=map)
-        if obstacle: return RoverMessageObstacle(obstacle=obstacle)
+        if obstacle:
+            return RoverMessageObstacle(rover=self, obstacle=obstacle)
         return RoverMessagePosition(rover=self)
 
     def moveDown(self, map:Map) -> RoverMessagePosition:
         obstacle = self._direction.moveDown(position=self._position, map=map)
-        if obstacle: return RoverMessageObstacle(obstacle=obstacle)
+        if obstacle:
+            return RoverMessageObstacle(rover=self, obstacle=obstacle)
         return RoverMessagePosition(rover=self)
 
     def positionToString(self) -> str:

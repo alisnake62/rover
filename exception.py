@@ -17,3 +17,6 @@ class OutSideMapException(RoverAppException):
 
 class BadCommandValueException(RoverAppException):
     _message = "The Command Value Must Be One of ('Up', 'Down', 'Left', 'Right')"
+
+class BadInstructionException(RoverAppException):
+    _message = "The Instructions Value Must Be One of ('U', 'D', 'L', 'R')"

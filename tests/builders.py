@@ -43,9 +43,9 @@ class RoverMessagePositionBuilder:
         return RoverMessagePosition(rover=rover)
 
 class RoverMessageObstacleBuilder:
-    def build(yPointValue:int, xPointValue:int) -> RoverMessageObstacle:
-        obstacle = ObstacleBuilder.build(yPointValue=yPointValue, xPointValue=xPointValue)
-        return RoverMessageObstacle(obstacle=obstacle)
+    def build(rover:Rover, yPointValue:int, xPointValue:int) -> RoverMessageObstacle:
+        obstacle    = ObstacleBuilder.build(yPointValue=yPointValue, xPointValue=xPointValue)
+        return RoverMessageObstacle(rover=rover, obstacle=obstacle)
 
 class CardinalBuilder:
 

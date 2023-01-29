@@ -28,6 +28,7 @@ class Deplacement:
 
         for command in commands:
             message = command.doDeplacement(deplacement=self)
-            if message.isObstacleMessage(): return message
+            if message.isObstacleMessage():   # not calli
+                return message
 
         return message

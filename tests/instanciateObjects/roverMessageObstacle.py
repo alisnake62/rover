@@ -1,17 +1,18 @@
 import unittest
 
 from src import RoverMessageObstacle
-from tests.builders import ObstacleBuilder
+from tests.builders import ObstacleBuilder, RoverBuilder
 
 class TestInitRoverMessageObstacle(unittest.TestCase):
 
     def test_init_roverMessageObstacle(self):
 
         # Arrange
-        obstacle = ObstacleBuilder.build(yPointValue=1, xPointValue=1)
+        obstacle    = ObstacleBuilder.build(yPointValue=1, xPointValue=1)
+        rover       = RoverBuilder.buildNorth(yPointValue=0, xPointValue=0)
 
         # Action 
-        roverMessageObstacle = RoverMessageObstacle(obstacle=obstacle)
+        roverMessageObstacle = RoverMessageObstacle(rover=rover, obstacle=obstacle)
 
         # Assert
-        self.assertEqual(roverMessageObstacle._value, "Unable to move due to the obstacle : [1;1] (y;x)")
+        self.assertEqual(roverMessageObstacle._value, "0;0_N_O_1;1")

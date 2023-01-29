@@ -8,3 +8,4 @@ from .rover         import Rover, RoverMessagePosition, RoverMessageObstacle, Ro
 from .deplacement   import Deplacement
 from .obstacle      import Obstacle
 from .command       import Command
+from .instruction   import Instructions

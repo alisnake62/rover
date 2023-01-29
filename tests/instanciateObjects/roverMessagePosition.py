@@ -14,4 +14,4 @@ class TestInitRoverMessagePosition(unittest.TestCase):
         roverMessagePosition = RoverMessagePosition(rover=rover)
 
         # Assert
-        self.assertEqual(roverMessagePosition._value, "Current position: [1;1] (y;x), Current direction: North")
+        self.assertEqual(roverMessagePosition._value, "1;1_N")

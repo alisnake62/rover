@@ -42,7 +42,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
 
         # Assert
         expectedRover   = RoverBuilder.buildNorth(yPointValue=0, xPointValue=1)
-        expectedMessage = RoverMessageObstacleBuilder.build(yPointValue=1, xPointValue=1)
+        expectedMessage = RoverMessageObstacleBuilder.build(rover=expectedRover, yPointValue=1, xPointValue=1)
         self.assertEqual(deplacement._rover , expectedRover)
         self.assertEqual(message            , expectedMessage)
 
@@ -84,7 +84,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
 
         # Assert
         expectedRover   = RoverBuilder.buildEast(yPointValue=0, xPointValue=1)
-        expectedMessage = RoverMessageObstacleBuilder.build(yPointValue=0, xPointValue=2)
+        expectedMessage = RoverMessageObstacleBuilder.build(rover=expectedRover, yPointValue=0, xPointValue=2)
         self.assertEqual(deplacement._rover , expectedRover)
         self.assertEqual(message            , expectedMessage)
 
@@ -126,7 +126,7 @@ class TestDeplacementMoveUp(unittest.TestCase):
 
         # Assert
         expectedRover   = RoverBuilder.buildSouth(yPointValue=1, xPointValue=1)
-        expectedMessage = RoverMessageObstacleBuilder.build(yPointValue=0, xPointValue=1)
+        expectedMessage = RoverMessageObstacleBuilder.build(rover=expectedRover, yPointValue=0, xPointValue=1)
         self.assertEqual(deplacement._rover , expectedRover)
         self.assertEqual(message            , expectedMessage)
 
@@ -168,6 +168,6 @@ class TestDeplacementMoveUp(unittest.TestCase):
 
         # Assert
         expectedRover   = RoverBuilder.buildWest(yPointValue=0, xPointValue=1)
-        expectedMessage = RoverMessageObstacleBuilder.build(yPointValue=0, xPointValue=0)
+        expectedMessage = RoverMessageObstacleBuilder.build(rover=expectedRover, yPointValue=0, xPointValue=0)
         self.assertEqual(deplacement._rover , expectedRover)
         self.assertEqual(message            , expectedMessage)

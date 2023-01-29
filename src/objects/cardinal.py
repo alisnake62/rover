@@ -12,7 +12,8 @@ class Cardinal:
         return otherCardinal._index == self._index
 
     def __str__(self) -> str:
-        return self._orderedExpectedValue[self._index]
+        value = self._orderedExpectedValue[self._index]
+        return value[0]
 
     def left(self):
         self._index -= 1
